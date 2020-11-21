@@ -1,0 +1,19 @@
+body {
+    background-color: #202124;
+}
+/*滚动条 start*/
+::-webkit-scrollbar {
+    width: 5px;
+    height: 4px;
+    background-color: #202124;
+}
+/*定义滚动条轨道 内阴影+圆角*/
+::-webkit-scrollbar-track {
+    border-radius: 20px;
+    background: #202124;
+}
+/*定义滑块 内阴影+圆角*/
+::-webkit-scrollbar-thumb {
+    border-radius: 20px;
+    background-color: #3F86E8;
+}

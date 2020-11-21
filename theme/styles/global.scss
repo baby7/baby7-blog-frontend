@@ -1,0 +1,151 @@
+@import "component";
+
+$default-theme: (
+    background-img: url(https://media.baby7blog.com/theme/back.jpg) no-repeat center center,
+    font-family: (Ubuntu,-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen,Cantarell,Fira Sans,Droid Sans,Helvetica Neue,sans-serif),
+    color-primary: #3F86E8,
+    color-primary-light: #92BBF3,
+    color-primary-deep: #4F77AE,
+    color-text: #3F86E8,
+    color-title: #3F86E8,
+    color-box: #3F86E8,
+    color-border:rgba(0, 0, 0, 0.3),
+    color-box-shadow-start: rgba(0, 0, 0, 0.12),
+    color-box-shadow-end: rgba(0, 0, 0, 0.04),
+    img-opacity: 1,
+    background-color:#fff,
+    background-color-difference:#111,
+    background-color-extreme:#000,
+    background-color-line:#202124,
+    color-level-primary:#409EFF,
+    color-level-success:#67C23A,
+    color-level-info:#909399,
+    color-level-warning:#E6A23C,
+    color-level-danger:#F56C6C
+);
+
+$pl-default-themes: (
+    "default":$default-theme,
+    "black":(
+        color-primary: #3eede5,
+        color-primary-light: #8bede5,
+        color-primary-deep: #299e99,
+        color-text: #3F86E8,
+        color-title: #3F86E8,
+        color-box: #3F86E8,
+        color-border:rgba(0, 0, 0, 0.3),
+        color-box-shadow-start: rgba(0, 0, 0, 0.5),
+        color-box-shadow-end: rgba(0, 0, 0, 0.04),
+        img-opacity: 0.8,
+        background-color:#202124,
+        background-color-difference:#888,
+        background-color-extreme:#fff,
+        background-color-line:#eaecef,
+        color-level-primary:#398adc,
+        color-level-success:#5caf34,
+        color-level-info:#797c80,
+        color-level-warning:#b8812f,
+        color-level-danger:#d95f5f
+    ),
+);
+
+@function pl-var($key) {
+    @if (map_has_key($theme-map, $key)) {
+        @return map-get($theme-map, $key);
+    } @else {
+        @return map-get($default-theme, $key);
+    }
+}
+
+@mixin pl-themeify($theme,$append-default-theme:true) {
+    @if (length(map-keys($theme))>0 and $append-default-theme) {
+        $pl-themes: map-merge($pl-default-themes, $theme) !global;
+    } @else {
+        $pl-themes: $theme !global;
+    }
+    @each $theme-name, $theme-map in $pl-themes {
+        $theme-map: $theme-map !global;
+
+        $p-background-img: pl-var(background-img) !global;
+        $p-font-family: pl-var(font-family) !global;
+        $p-color-primary: pl-var(color-primary) !global;
+        $p-color-primary-light: pl-var(color-primary-light) !global;
+        $p-color-primary-deep: pl-var(color-primary-deep) !global;
+        $p-color-text: pl-var(color-text) !global;
+        $p-color-title: pl-var(color-title) !global;
+        $p-color-box: pl-var(color-box) !global;
+        $p-color-border: pl-var(color-border) !global;
+        $p-color-box-shadow-start: pl-var(color-box-shadow-start) !global;
+        $p-color-box-shadow-end: pl-var(color-box-shadow-end) !global;
+        $p-img-opacity: pl-var(img-opacity) !global;
+        $p-background-color: pl-var(background-color) !global;
+        $p-background-color-difference: pl-var(background-color-difference) !global;
+        $p-background-color-extreme: pl-var(background-color-extreme) !global;
+        $p-background-color-line: pl-var(background-color-line) !global;
+        $p-background-color-level-primary: pl-var(color-level-primary) !global;
+        $p-background-color-level-success: pl-var(color-level-success) !global;
+        $p-background-color-level-info: pl-var(color-level-info) !global;
+        $p-background-color-level-warning: pl-var(color-level-warning) !global;
+        $p-background-color-level-danger: pl-var(color-level-danger) !global;
+
+
+
+        /****************************************淡入效果********************************************/
+        @keyframes fade-in {
+            0% {opacity: 0;}/*初始状态 透明度为0*/
+            60% {opacity: 0;}/*过渡状态 透明度为0*/
+            100% {opacity: 1;}/*结束状态 透明度为1*/
+        }
+        @-webkit-keyframes fade-in {/*针对webkit内核*/
+            0% {opacity: 0;}
+            60% {opacity: 0;}
+            100% {opacity: 1;}
+        }
+        .pl-theme-#{$theme-name} {
+            animation: fade-in;/*动画名称*/
+            animation-duration: 2.0s;/*动画持续时间*/
+            -webkit-animation:fade-in 2.0s;/*针对webkit内核*/
+        }
+        /****************************************淡入效果********************************************/
+
+        @if (str_length($theme-name) >0) {
+            .pl-theme-#{$theme-name} {
+                font-family: $p-font-family;
+                @content;
+            }
+        } @else {
+            html {
+                @content;
+            }
+        }
+    }
+}
+
+@mixin pl-theme-wrap($theme) {
+    @include pl-themeify($theme, true) {
+        @content;
+    }
+}
+
+@mixin pl-use-theme($theme:()) {
+    @include pl-themeify($theme, false) {
+        @include component-mixin;
+    }
+}
+
+@mixin pl-colors($prefix) {
+    @each $key in (primary, success, warn, error, info, disabled) {
+        $key: $key !global;
+        $pl-color: pl-var(color-#{$key}) !global;
+        $value: pl-var(color-#{$key}) !global;
+        $pl-color-deep: pl-var(color-#{$key}-deep) !global;
+        $pl-color-light: pl-var(color-#{$key}-light) !global;
+        @if (str_length($prefix)>0) {
+            &.#{$prefix}-color-#{$key} {
+                @content;
+            }
+        } @else {
+            @content;
+        }
+    }
+}

@@ -1,0 +1,20 @@
+@import "../theme/styles/global";
+
+$custom: (
+    custom:(
+        //color-primary: #3597cb,
+        //color-primary-light: #85cfef,
+        //color-primary-deep: #24678a,
+        //color-primary-lighter: #d5f9c9,
+        //color-title:#fff,
+        //background-color: #202124,
+        //background-color-difference:#5799a8,
+        //background-color-line:#a8f2ff,
+    )
+);
+
+@mixin themeify {
+    @include pl-theme-wrap($custom) {
+        @content;
+    }
+}
