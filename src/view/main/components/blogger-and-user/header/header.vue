@@ -14,7 +14,6 @@
 
 <script>
 import MenuHeader from "@/components/menu-header/menu-header"
-import headImg from "@/assets/logo.png";
 import { getMenuList } from '@/api/menu'
 
 export default {
@@ -38,7 +37,6 @@ export default {
                 current: 1,
                 size: 20
             },
-            imgUrl: headImg,
             configNav: [
                 {
                     name: "首页",

@@ -64,7 +64,7 @@ export default {
         cursor: text;
         width: 10rem;
         height: 2rem;
-        color: #4e6e8e;
+        color: $p-background-color-difference;
         display: inline-block;
         border: 1px solid $p-background-color-difference;
         border-radius: .25rem;

@@ -27,7 +27,7 @@
         </div>
         <div v-if="commentList.length > 0" class="comment-list">
             <div class="comment-card" v-for="comment in commentList">
-                <img class="comment-img" :src="prefix+comment.avatar">
+                <img class="comment-img" :src="comment.avatar">
                 <div class="comment-right">
                     <div class="comment-head">
                         <a class="comment-nick" :href="comment.url">
@@ -46,7 +46,7 @@
                     </div>
                     <div class="comment-quote">
                         <div class="comment-card" v-for="children in comment.childrenList">
-                            <img class="comment-img" :src="prefix+children.avatar">
+                            <img class="comment-img" :src="children.avatar">
                             <div class="comment-right">
                                 <div class="comment-head">
                                     <a class="comment-nick" :href="children.url">
@@ -114,8 +114,7 @@ export default {
             },
             showToast: false,
             showToastMsg: "",
-            showToastLevel: "success",
-            prefix: "/blog"
+            showToastLevel: "success"
         }
     },
     methods:{
