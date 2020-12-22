@@ -35,7 +35,7 @@
             :message="showToastMsg"
             :level="showToastLevel"/>
         <!-- 背景 -->
-        <div>
+        <div v-if="$route.query.seo == null">
             <!-- 粒子连线特效 -->
             <BackgroundParticles v-if="settingData.plugins.particles.state"/>
             <!-- 粒子穿越特效 -->
@@ -47,11 +47,11 @@
         </div>
         <!-- 看板娘 -->
         <Live2dw
-            v-if="settingData.plugins.live2dw.state && openLive2dw"
+            v-if="settingData.plugins.live2dw.state && openLive2dw && $route.query.seo == null"
             :data="settingData.plugins.live2dw"/>
         <!-- 上吊猫 -->
         <BackToTop
-            v-if="settingData.plugins.backToTop.state"
+            v-if="settingData.plugins.backToTop.state && $route.query.seo == null"
             :url="settingData.plugins.backToTop.cdnPath"/>
     </div>
 </template>
@@ -209,34 +209,36 @@
             },
             //自动收录
             autoPush() {
-                // 百度自动收录
-                if(this.settingData.push.baidu.state){
+                if(this.$route.query.seo == null) {
+                  // 百度自动收录
+                  if(this.settingData.push.baidu.state){
                     let bp = document.createElement('script');
                     let curProtocol = window.location.protocol.split(':')[0];
                     if (curProtocol === 'https') {
-                        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+                      bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
                     }
                     else {
-                        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+                      bp.src = 'http://push.zhanzhang.baidu.com/push.js';
                     }
                     let s = document.getElementsByTagName("script")[0];
                     s.parentNode.insertBefore(bp, s);
-                }
-                // 360自动收录
-                if(this.settingData.push["360"].state){
+                  }
+                  // 360自动收录
+                  if(this.settingData.push["360"].state){
                     let th = document.createElement('script');
                     th.src = "https://jspassport.ssl.qhimg.com/11.0.1.js?" + this.settingData.push["360"].value;
                     th.id = "sozz"
                     let s = document.getElementsByTagName("script")[0];
                     s.parentNode.insertBefore(th, s);
-                }
-                // 头条自动收录
-                if(this.settingData.push.toutiao.state){
+                  }
+                  // 头条自动收录
+                  if(this.settingData.push.toutiao.state){
                     let el = document.createElement("script");
                     el.src = "https://s3a.pstatp.com/toutiao/push.js?" + this.settingData.push.toutiao.value;
                     el.id = "ttzz";
                     let s = document.getElementsByTagName("script")[0];
                     s.parentNode.insertBefore(el, s);
+                  }
                 }
             }
         },

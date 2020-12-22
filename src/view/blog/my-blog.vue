@@ -50,7 +50,9 @@ export default {
                 this.$store.state.blogTitleShow = true
                 document.title = this.$store.state.blogTitle + " - " + this.$store.state.title
             })
-            look({id:this.$route.query.id}).then()
+            if(this.$route.query.seo == null) {
+                look({id:this.$route.query.id}).then()
+            }
         },
         ChangeMarkdownTheme(){
             if(localStorage.getItem("baby7-style") === "light"){
