@@ -2,11 +2,10 @@
     <div class="blog-content">
         <div class="content-real">
             <!-- markdown博客 -->
-            <MarkdownPreview v-if="blogContent.type == 1" :initialValue="blogContent.content" :theme="markdownTheme"/>
-            <!-- 富文本博客 -->
-            <div v-if="blogContent.type != 1" v-html="blogContent.content" class="rich-text"/>
+            <MarkdownPreview :initialValue="blogContent.content" :theme="markdownTheme"/>
             <!-- 转载声明 -->
             <TransferStatement/>
+        </div>
         </div>
         <div class="content-real">
             <BlogInfo :blog-content="blogContent"/>
@@ -41,10 +40,7 @@ export default {
             this.ChangeMarkdownTheme()
             getBlog(this.$route.query.id).then(res => {
                 this.blogContent = res.data;
-                if(this.blogContent.type === 1) {
-                    // this.blogContent.content = this.blogContent.content.replaceAll("\n", "\n\n")
-                    this.blogContent.content = this.getContent(this.blogContent.content)
-                }
+                this.blogContent.content = this.getContent(this.blogContent.content)
                 this.$store.state.blogTitle = this.blogContent.title
                 this.$store.state.blogDescription = this.blogContent.introduce
                 this.$store.state.blogTitleShow = true
