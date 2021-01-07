@@ -121,6 +121,7 @@ export default {
         height: 35.2px;
         min-width: 35.2px;
         vertical-align: top;
+        border-radius: 4px;
     }
     .header-title {
         position: relative;

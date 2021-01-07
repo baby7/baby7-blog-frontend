@@ -1,18 +1,22 @@
 <template>
     <div>
-        <span class="label-item" style="background-color:#E355CD">
-            <router-link to="/label">
-                全部
-            </router-link>
-        </span>
-        <span
-            v-for="(label,index) in labelList"
-            class="label-item"
-            :style="'background-color:'+getColor(index)">
-            <router-link :to="'/label?id='+label.id">
-                {{ label.label }}
-            </router-link>
-        </span>
+        <template>
+          <router-link class="label-link" to="/label">
+                <span class="label-item" style="background-color:#E355CD">
+                  全部
+                </span>
+          </router-link>
+        </template>
+        <template
+            v-for="(label,index) in labelList">
+          <router-link class="label-link" :to="'/label?id='+label.id">
+                <span
+                    class="label-item"
+                    :style="'background-color:'+getColor(index)">
+                  {{label.label}}
+                </span>
+          </router-link>
+        </template>
         <BlogList :blog-list="blogList"/>
         <Pagination
             :page-index="blogQuery.current"

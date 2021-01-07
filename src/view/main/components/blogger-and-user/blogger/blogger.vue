@@ -50,13 +50,14 @@ export default {
         border-radius: 4px;
         height: 100px;
         width: 100px;
-        line-height: 100px
+        line-height: 100px;
     }
     .avatar > img {
         display: block;
         height: 100%;
         vertical-align: middle;
         line-height: 35px;
+        border-radius: 4px;
     }
     .blogger-text {
         float: right;

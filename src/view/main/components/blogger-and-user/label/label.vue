@@ -4,19 +4,23 @@
         <span class="right-label-title"><i class="el-icon-collection-tag"></i>&nbsp;标签</span>
         <!-- 分隔 -->
         <hr class="title-line-right">
-        <span class="label-item" style="background-color:#E355CD">
-            <router-link to="/label">
+        <template>
+            <router-link class="label-link" to="/label">
+              <span class="label-item" style="background-color:#E355CD">
                 全部
+              </span>
             </router-link>
-        </span>
-        <span
-            v-for="(label,index) in labelList"
-            class="label-item"
-            :style="'background-color:'+getColor(index)">
-            <router-link :to="'/label?id='+label.id">
+        </template>
+        <template
+            v-for="(label,index) in labelList">
+            <router-link class="label-link" :to="'/label?id='+label.id">
+              <span
+                  class="label-item"
+                  :style="'background-color:'+getColor(index)">
                 {{label.label}}
+              </span>
             </router-link>
-        </span>
+        </template>
     </div>
 </template>
 
@@ -61,7 +65,7 @@
         font-size: 13px;
         transition: all .5s;
     }
-    .label-item > a {
+    .label-link {
         color: $p-background-color-extreme;
         text-decoration: none;
     }

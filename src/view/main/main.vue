@@ -190,6 +190,9 @@
                     }
                     this.$store.state.title = this.settingData.title
                     document.title = this.$store.state.blogTitle + " - " + this.$store.state.title
+                    if(this.$store.state.blogTitle == ""){
+                      document.title = this.$store.state.title
+                    }
                     this.openLive2dw = true
                     if(this.showTitleMsg){
                         this.$store.state.blogTitle = this.settingData.title

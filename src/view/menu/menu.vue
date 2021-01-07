@@ -110,7 +110,7 @@ export default {
         display: inline;
         font-size: 14px;
         position: relative;
-        padding: 9px 12px;
+        padding: 6px;
         line-height: 1.42857143;
         text-decoration: none;
         box-shadow: 0 1px 6px 0 rgba(0, 0, 0, 0.9);

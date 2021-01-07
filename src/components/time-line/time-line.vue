@@ -1,7 +1,7 @@
 <template>
     <div id="time-line">
         <div class="item" v-for="item in timeLine" :key="item.index">
-            <router-link :to="'/blog?id='+item.id">
+            <router-link :to="'/myBlog?id='+item.id">
                 <div class="item-content">
                     <span class="time-line-date">
                         {{ item.createTime.substring(0, 10) }}

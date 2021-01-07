@@ -6,7 +6,6 @@
             <!-- 转载声明 -->
             <TransferStatement/>
         </div>
-        </div>
         <div class="content-real">
             <BlogInfo :blog-content="blogContent"/>
         </div>
