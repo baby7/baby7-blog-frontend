@@ -7,7 +7,12 @@
     <link rel="icon" href="<%= BASE_URL %>favicon.ico">
     <title>博客</title>
     <!-- 滚动条样式 -->
-    <link rel="stylesheet" id="css" href="static/css/scroll-bar-black.css"/>
+    <style>
+        body { background-color: #202124; }
+        ::-webkit-scrollbar { width: 5px; height: 4px; background-color: #202124; }
+        ::-webkit-scrollbar-track { border-radius: 20px; background: #202124; }
+        ::-webkit-scrollbar-thumb { border-radius: 20px; background-color: #3F86E8; }
+    </style>
 </head>
 <body style="margin: 0">
     <noscript>
@@ -18,5 +23,6 @@
     <script src="https://cdn.baby7blog.com/vue-router/3.0.1/vue-router.min.js"></script>
     <script src="https://cdn.baby7blog.com/axios/0.19.0/axios.min.js"></script>
     <div id="app"></div>
+    <link rel="stylesheet" id="css" href="static/css/scroll-bar-black.css"/>
 </body>
 </html>

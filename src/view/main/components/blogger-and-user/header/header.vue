@@ -8,7 +8,7 @@
                 </router-link>
             </span>
         </div>
-        <MenuHeader :config-nav="configNav"/>
+        <MenuHeader v-show="showMenu" :config-nav="configNav"/>
     </header>
 </template>
 
@@ -70,12 +70,9 @@ export default {
                         {link: 'https://github.com/baby7/baby7-blog-manage', text: '管理端源码'},
                         {link: 'https://github.com/baby7/baby7-blog-server', text: '后端源码'}
                     ]
-                },
-                // {
-                //     name: "订阅",
-                //     path: '/rss.xml',
-                // }
-            ]
+                }
+            ],
+            showMenu: false
         }
     },
     methods:{
@@ -90,6 +87,7 @@ export default {
                     })
                 }
                 this.configNav[1].subItems = subItems
+                this.showMenu = true
             })
         }
     },

@@ -177,11 +177,11 @@
         methods:{
             // 获取数据
             getData() {
-                let setting = localStorage.getItem("baby7-setting")
-                if(setting != null){
-                    this.settingData = JSON.parse(setting)
-                    document.querySelector("link[rel='icon']").href = this.settingData.icon
-                }
+                // let setting = localStorage.getItem("baby7-setting")
+                // if(setting != null){
+                //     this.settingData = JSON.parse(setting)
+                //     document.querySelector("link[rel='icon']").href = this.settingData.icon
+                // }
                 getSetting().then(res => {
                     if(this.settingData.updateTime != res.data.updateTime) {
                         this.settingData = res.data
