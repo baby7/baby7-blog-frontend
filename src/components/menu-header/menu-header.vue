@@ -93,7 +93,7 @@ export default {
         height: auto;
         position: absolute;
         border-bottom: none;
-        right: 5rem;
+        right: 2rem;
     }
 
     .nav-a {
@@ -189,5 +189,10 @@ export default {
     .menu_li.active .menu_ul_text {
         color: $p-color-text;
     }
+  @media (max-width: 879px) {
+    .nav-a-li {
+      display: none;
+    }
+  }
 }
 </style>

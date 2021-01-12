@@ -306,7 +306,7 @@
         margin-top: -70px;
         text-align: center;
         background: $p-background-img;
-        min-height: 650px;
+        min-height: 270px;
         width: 100%;
         -webkit-background-size: 100%;
         -moz-background-size: 100%;
@@ -315,11 +315,8 @@
         padding-top: 150px;
     }
     .container {
-        padding-right: 15px;
-        padding-left: 15px;
-        margin-right: auto;
-        margin-left: auto;
-        padding-top: 150px;
+        padding-top: 8%;
+        padding-bottom: 8%;
     }
     .container > h1 {
         color: #ffffff;
@@ -330,6 +327,17 @@
         font-size: 1.5rem;
         transition: all 0.25s ease-in-out 0.08s;
         transform: translateY(0px); opacity: 1;
+    }
+    @media (max-width: 879px) {
+      .info-wrapper {
+        display: none;
+      }
+      .header-wrap {
+        background-size: initial;
+      }
+      .container > h1 {
+        font-size: 2.2rem;
+      }
     }
 }
 </style>

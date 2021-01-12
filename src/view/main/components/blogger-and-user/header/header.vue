@@ -105,7 +105,7 @@ export default {
         top: 0;
         width: 100%;
         z-index: 20;
-        padding: .7rem 1.5rem;
+        padding: .7rem;
         background-color:  rgba(0, 0, 0, 0.5);;
         font-size: .9rem;
         box-shadow: $p-color-box-shadow-start 0 2px 4px, $p-color-box-shadow-end 0 0 6px;
@@ -124,7 +124,6 @@ export default {
     .header-title {
         position: relative;
         font-size: 1.2rem;
-        left: 1rem;
         line-height: 2.2rem;
         color: $p-color-title;
     }
