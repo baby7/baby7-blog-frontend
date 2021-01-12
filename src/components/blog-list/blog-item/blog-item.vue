@@ -67,7 +67,7 @@ export default {
 
     /*文字样式*/
     .blog_item_title {
-        font-size: 20px;
+        font-size: 1.28rem;
         margin-bottom: 0;
     }
 
@@ -138,6 +138,9 @@ export default {
     }
     @media all and (orientation : portrait) {
       .phone-adapt {
+        display: none;
+      }
+      .blog-msg {
         display: none;
       }
     }
