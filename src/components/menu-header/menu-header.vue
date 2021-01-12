@@ -190,8 +190,11 @@ export default {
         color: $p-color-text;
     }
   @media all and (orientation : portrait) {
+    .nav-style-li {
+        display: none;
+    }
     .nav-a-li {
-      display: none;
+        display: none;
     }
   }
 }
