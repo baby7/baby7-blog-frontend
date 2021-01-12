@@ -315,8 +315,8 @@
         padding-top: 150px;
     }
     .container {
-        padding-top: 8%;
-        padding-bottom: 8%;
+        padding-top: 6%;
+        padding-bottom: 12%;
     }
     .container > h1 {
         color: #ffffff;
@@ -337,6 +337,12 @@
       }
       .container > h1 {
         font-size: 2.2rem;
+      }
+      .description {
+        font-size: 1rem;
+      }
+      #live2d-widget {
+        display: none;
       }
     }
 }

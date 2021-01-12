@@ -4,7 +4,7 @@
             <section class="el-container">
                 <section class="el-container">
                     <!-- 图片信息展示 -->
-                    <aside class="el-aside" style="width:220px;">
+                    <aside class="el-aside phone-adapt" style="width:220px;">
                         <img class="blog_item_img" :src="blog.img == null ? defaultBlogImg : blog.img"
                              :alt="blog.title">
                     </aside>
@@ -135,6 +135,11 @@ export default {
         -webkit-box-sizing: border-box;
         box-sizing: border-box;
         min-width: 0;
+    }
+    @media (max-width: 879px) {
+      .phone-adapt {
+        display: none;
+      }
     }
 }
 </style>
