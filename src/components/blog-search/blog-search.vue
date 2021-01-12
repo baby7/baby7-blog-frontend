@@ -102,7 +102,7 @@ export default {
     .search-link:hover {
         color: $p-color-text;
     }
-    @media (max-width: 879px) {
+    @media all and (orientation : portrait) {
       .search-list {
         left: 0;
       }

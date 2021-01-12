@@ -136,7 +136,7 @@ export default {
         box-sizing: border-box;
         min-width: 0;
     }
-    @media (max-width: 879px) {
+    @media all and (orientation : portrait) {
       .phone-adapt {
         display: none;
       }

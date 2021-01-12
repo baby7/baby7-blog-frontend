@@ -189,7 +189,7 @@ export default {
     .menu_li.active .menu_ul_text {
         color: $p-color-text;
     }
-  @media (max-width: 879px) {
+  @media all and (orientation : portrait) {
     .nav-a-li {
       display: none;
     }

@@ -328,7 +328,7 @@
         transition: all 0.25s ease-in-out 0.08s;
         transform: translateY(0px); opacity: 1;
     }
-    @media (max-width: 879px) {
+    @media all and (orientation : portrait) {
       .info-wrapper {
         display: none;
       }
