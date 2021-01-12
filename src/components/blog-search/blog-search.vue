@@ -102,5 +102,10 @@ export default {
     .search-link:hover {
         color: $p-color-text;
     }
+    @media (max-width: 879px) {
+      .search-list {
+        left: 0;
+      }
+    }
 }
 </style>
