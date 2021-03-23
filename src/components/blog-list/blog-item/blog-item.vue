@@ -89,6 +89,7 @@ export default {
     /*介绍*/
     .blog_item_introduce {
         margin-top: 1%;
+        margin-bottom: 5%;
         color: $p-background-color-difference;
     }
 
