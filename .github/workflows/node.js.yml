@@ -31,3 +31,10 @@ jobs:
     # 通过 Dockerfile 构建镜像
     - name: Build Docker Image
       run: docker build . --file Dockerfile --tag baby7-blog-frontend:$(date +%s)
+      
+    - name: Publish to Docker Repository
+      uses: elgohr/Publish-Docker-Github-Action@master
+      with:
+        name: baby7/baby7-blog-frontend:latest
+        username: ${{ secrets.DOCKER_USERNAME }}
+        password: ${{ secrets.DOCKER_PASSWORD }}
