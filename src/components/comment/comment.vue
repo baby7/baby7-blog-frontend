@@ -130,25 +130,25 @@ export default {
             addComment(this.commentSubmit).then(res => {
                 if(res.code === 0){
                     this.ShowMessage(res.msg, "success")
+                    this.commentSubmit = {
+                        id: 0,
+                        blogId: this.blogId,
+                        ancestorId: 0,
+                        replyId: 0,
+                        nickname: "",
+                        avatar: "",
+                        email: "",
+                        url: "",
+                        content: "",
+                        browser: "",
+                        system: ""
+                    }
+                    this.commentPrompt = "快来留言吧，支持markdown哦~"
+                    this.getData()
                 }
                 else {
                     this.ShowMessage(res.msg, "danger")
                 }
-                this.commentSubmit = {
-                    id: 0,
-                    blogId: this.blogId,
-                    ancestorId: 0,
-                    replyId: 0,
-                    nickname: "",
-                    avatar: "",
-                    email: "",
-                    url: "",
-                    content: "",
-                    browser: "",
-                    system: ""
-                }
-                this.commentPrompt = "快来留言吧，支持markdown哦~"
-                this.getData()
             })
         },
         ShowMessage(msg, level){

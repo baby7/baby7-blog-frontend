@@ -1,17 +1,4 @@
 /**
- * 判断是否存在于数组中
- * @author 韦胜健
- * @date 2018/11/19
- */
-function oneOf(val, array) {
-    for (let i = 0; i < array.length; i++) {
-        const item = array[i];
-        if (item === val) return true;
-    }
-    return false;
-}
-
-/**
  * 判断变量类型
  * @author 韦胜健
  * @date 2018/11/19
@@ -31,16 +18,6 @@ function typeOf(obj) {
         '[object Object]': 'object'
     };
     return map[toString.call(obj)];
-}
-
-/**
- * 是否包含某种样式class
- * @author 韦胜健
- * @date 2018/11/19
- */
-function hasClass(el, cls) {
-    if (!!el.classList && !!el.classList.value) return oneOf(cls, el.classList.value.split(' '));
-    else return (el.className || '').split(' ').indexOf(cls) > -1
 }
 
 /**
@@ -87,7 +64,6 @@ function removeClass(el, rmCls) {
 }
 
 export default {
-    hasClass,
     addClass,
     removeClass,
 }
