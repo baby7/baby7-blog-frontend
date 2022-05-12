@@ -13,11 +13,3 @@ export function getBlogger() {
     method: 'get'
   })
 }
-
-export function putSetting(obj) {
-  return request({
-    url: '/setting/change',
-    method: 'put',
-    data: obj
-  })
-}

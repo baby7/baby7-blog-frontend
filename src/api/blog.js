@@ -29,26 +29,3 @@ export function getBlog(id) {
     method: 'get'
   })
 }
-
-export function addBlog(obj) {
-  return request({
-    url: '/blog/change',
-    method: 'post',
-    data: obj
-  })
-}
-
-export function delBlog(id) {
-  return request({
-    url: '/blog/change/' + id,
-    method: 'delete'
-  })
-}
-
-export function putBlog(obj) {
-  return request({
-    url: '/blog/change',
-    method: 'put',
-    data: obj
-  })
-}
