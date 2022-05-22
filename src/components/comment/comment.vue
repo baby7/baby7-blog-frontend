@@ -80,6 +80,7 @@
 
 <script>
 import { getCommentTree, addComment } from "@/api/comment";
+import { getSystem,getBrowser } from "@/util/message";
 import MarkdownPreview from "@/components/markdown/components/preview/index";
 
 export default {
@@ -125,8 +126,8 @@ export default {
             })
         },
         Reply(){
-            this.commentSubmit.browser = this.getBrowser()
-            this.commentSubmit.system = this.getSystem()
+            this.commentSubmit.browser = getBrowser()
+            this.commentSubmit.system = getSystem()
             addComment(this.commentSubmit).then(res => {
                 if(res.code === 0){
                     this.ShowMessage(res.msg, "success")
@@ -161,65 +162,6 @@ export default {
             this.commentSubmit.replyId = replyId
             this.commentSubmit.content = ""
             this.commentPrompt = "@" + commentPrompt
-        },
-        getSystem(){
-            let sUserAgent = navigator.userAgent;
-            let isWin = (navigator.platform === "Win32") || (navigator.platform === "Windows");
-            let isMac = (navigator.platform === "Mac68K") || (navigator.platform === "MacPPC") || (navigator.platform === "Macintosh") || (navigator.platform == "MacIntel");
-            if (isMac) return "Mac";
-            let isUnix = (navigator.platform === "X11") && !isWin && !isMac;
-            if (isUnix) return "Unix";
-            let isLinux = (String(navigator.platform).indexOf("Linux") > -1);
-            let bIsAndroid = sUserAgent.toLowerCase().match(/android/i) === "android";
-            if (isLinux) {
-                if(bIsAndroid) return "Android";
-                else return "Linux";
-            }
-            if (isWin) {
-                let isWin2K = sUserAgent.indexOf("Windows NT 5.0") > -1 || sUserAgent.indexOf("Windows 2000") > -1;
-                if (isWin2K) return "Windows 2000";
-                let isWinXP = sUserAgent.indexOf("Windows NT 5.1") > -1 || sUserAgent.indexOf("Windows XP") > -1
-                sUserAgent.indexOf("Windows XP") > -1;
-                if (isWinXP) return "Windows XP";
-                let isWin2003 = sUserAgent.indexOf("Windows NT 5.2") > -1 || sUserAgent.indexOf("Windows 2003") > -1;
-                if (isWin2003) return "Windows 2003";
-                let isWinVista= sUserAgent.indexOf("Windows NT 6.0") > -1 || sUserAgent.indexOf("Windows Vista") > -1;
-                if (isWinVista) return "Windows Vista";
-                let isWin7 = sUserAgent.indexOf("Windows NT 6.1") > -1 || sUserAgent.indexOf("Windows 7") > -1;
-                if (isWin7) return "Windows 7";
-                let isWin8 = sUserAgent.indexOf("windows nt6.2") > -1 || sUserAgent.indexOf("Windows 8") > -1;
-                if (isWin8) return "Windows 8";
-                let isWin10 = sUserAgent.indexOf("Windows NT 10.0") > -1 || sUserAgent.indexOf("Windows 10") > -1;
-                if (isWin10) return "Windows 10";
-            }
-            if (sUserAgent.indexOf("android") > -1) return "Android"
-            if (sUserAgent.indexOf("iphone") > -1) return "iPhone"
-            if (sUserAgent.indexOf("ipad") > -1) return "iPad"
-            if (sUserAgent.indexOf("windows phone") > -1) return "Windows Phone"
-            if (sUserAgent.indexOf("symbianos") > -1) return "SymbianOS"
-        },
-        getBrowser(){
-            var agent = navigator.userAgent.toLowerCase() ;
-            var regStr_ie = /msie [\d.]+;/gi ;
-            var regStr_ff = /firefox\/[\d.]+/gi
-            var regStr_chrome = /chrome\/[\d.]+/gi ;
-            var regStr_saf = /safari\/[\d.]+/gi ;
-            //IE
-            if(agent.indexOf("msie") > 0) {
-                return ""+agent.match(regStr_ie);
-            }
-            //firefox
-            if(agent.indexOf("firefox") > 0){
-                return ""+agent.match(regStr_ff) ;
-            }
-            //Chrome
-            if(agent.indexOf("chrome") > 0) {
-                return ""+agent.match(regStr_chrome);
-            }
-            //Safari
-            if(agent.indexOf("safari") > 0 && agent.indexOf("chrome") < 0) {
-                return ""+agent.match(regStr_saf);
-            }
         }
     },
     mounted() {

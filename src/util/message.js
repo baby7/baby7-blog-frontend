@@ -75,14 +75,12 @@ export function getSE() {
     eg.push(['360', 'q']);
     var dq = getDomainQuery(document.referrer);
     var keyword=null;
-    var grep=null;
     var str=null;
     for(var el in eg){
         var s = eg[el];
         var DandQ=String(s).split(","); //字符分割
         if (dq[0].indexOf(DandQ[0])>0){
-            eval("grep=/"+DandQ[1]+"\=.*\&/i;");
-            str = dq[1].match(grep);
+            str = dq[1].match(DandQ[1]+'\\=.*\\&');
             keyword = str.toString().split("=")[1].split("&")[0];
             keyword = decodeURIComponent(keyword);
             return [dq[0], keyword];
