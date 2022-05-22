@@ -19,6 +19,8 @@ import MarkdownPreview from '@/components/markdown/preview';
 import BlogInfo from "@/view/blog/blog-info/blog-info";
 import Comment from "@/components/comment/comment"
 import { getBlog,look } from "@/api/blog";
+import { addFootprint } from "@/api/footprint";
+import { getSystem,getBrowser,getSE } from "@/util/message";
 
 export default {
     name: "blog",
@@ -46,7 +48,26 @@ export default {
                 document.title = this.$store.state.blogTitle + " - " + this.$store.state.title
             })
             if(this.$route.query.seo == null) {
+                // 添加浏览记录
                 look({id:this.$route.query.id}).then()
+                // 添加足迹
+                let system = getSystem()
+                let browser = getBrowser()
+                let se = getSE()
+                let from = null
+                let keyword = null
+                if (se != null && se !== "") {
+                    from = se[0]
+                    keyword = se[1]
+                }
+                let message = {
+                    "system": system,
+                    "browser": browser,
+                    "from": from,
+                    "keyword": keyword,
+                    "url": location.href
+                }
+                addFootprint(message).then()
             }
         },
         ChangeMarkdownTheme(){
@@ -79,7 +100,7 @@ export default {
     },
     computed: {
         isFollow () {
-            return this.$store.state.themeChange;　　//需要监听的数据
+            return this.$store.state.themeChange;   //需要监听的数据
         }
     },
     watch: {
