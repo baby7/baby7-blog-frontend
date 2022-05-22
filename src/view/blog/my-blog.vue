@@ -63,7 +63,7 @@ export default {
                 let message = {
                     "system": system,
                     "browser": browser,
-                    "from": from,
+                    "searchEngine": from,
                     "keyword": keyword,
                     "url": location.href
                 }
