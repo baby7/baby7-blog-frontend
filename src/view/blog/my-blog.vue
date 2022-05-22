@@ -65,7 +65,9 @@ export default {
                     "browser": browser,
                     "searchEngine": from,
                     "keyword": keyword,
-                    "url": location.href
+                    "url": location.href,
+                    "blogId": this.$route.query.id,
+                    "type": "博客"
                 }
                 addFootprint(message).then()
             }

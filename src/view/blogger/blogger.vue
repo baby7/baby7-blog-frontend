@@ -7,6 +7,8 @@
 <script>
 import MarkdownPreview from '@/components/markdown/preview';
 import { getBlogger } from "@/api/setting";
+import { addFootprint } from "@/api/footprint";
+import { getSystem,getBrowser,getSE } from "@/util/message";
 
 export default {
     name: "blogger",
@@ -26,6 +28,27 @@ export default {
             getBlogger().then(res => {
                 this.blogger = res.data;
             })
+            if(this.$route.query.seo == null) {
+                // 添加足迹
+                let system = getSystem()
+                let browser = getBrowser()
+                let se = getSE()
+                let from = null
+                let keyword = null
+                if (se != null && se !== "") {
+                    from = se[0]
+                    keyword = se[1]
+                }
+                let message = {
+                    "system": system,
+                    "browser": browser,
+                    "searchEngine": from,
+                    "keyword": keyword,
+                    "url": location.href,
+                    "type": "博主页"
+                }
+                addFootprint(message).then()
+            }
         },
         ChangeMarkdownTheme(){
             if(localStorage.getItem("baby7-style") === "light"){

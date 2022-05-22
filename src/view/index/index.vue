@@ -15,6 +15,8 @@ import BlogList from "@/components/blog-list/blog-list"
 import Pagination from "@/components/pagination/pagination"
 
 import {getBlogPage} from "@/api/blog"
+import { addFootprint } from "@/api/footprint";
+import { getSystem,getBrowser,getSE } from "@/util/message";
 
 export default {
     name: "index",
@@ -47,6 +49,27 @@ export default {
                 this.blogList = res.data.records;
                 this.query.total = res.data.total;
             })
+            if(this.$route.query.seo == null) {
+                // 添加足迹
+                let system = getSystem()
+                let browser = getBrowser()
+                let se = getSE()
+                let from = null
+                let keyword = null
+                if (se != null && se !== "") {
+                    from = se[0]
+                    keyword = se[1]
+                }
+                let message = {
+                    "system": system,
+                    "browser": browser,
+                    "searchEngine": from,
+                    "keyword": keyword,
+                    "url": location.href,
+                    "type": "主页"
+                }
+                addFootprint(message).then()
+            }
         },
         //分页
         handleCurrentChange(val) {
