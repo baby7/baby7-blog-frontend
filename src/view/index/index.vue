@@ -39,7 +39,8 @@ export default {
                     createTime: '',
                     id: '',
                 }
-            ]
+            ],
+            footprint: false
         }
     },
     methods: {
@@ -49,7 +50,8 @@ export default {
                 this.blogList = res.data.records;
                 this.query.total = res.data.total;
             })
-            if(this.$route.query.seo == null) {
+            if(this.$route.query.seo == null && this.footprint === false) {
+                this.footprint = true
                 // 添加足迹
                 let browser = getBrowser()
                 let se = getSE()
