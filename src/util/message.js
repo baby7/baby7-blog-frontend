@@ -1,18 +1,27 @@
 // 获取系统和版本信息
-export function getSystem() {
+export function getSystem(callback, message) {
     // 首先判断win11
     navigator.userAgentData.getHighEntropyValues(["platformVersion"])
         .then(ua => {
+            let system = ""
             if (navigator.userAgentData.platform === "Windows") {
                 const majorPlatformVersion = parseInt(ua.platformVersion.split('.')[0]);
                 if (majorPlatformVersion >= 13) {
-                    return "Windows 11";
+                    system = "Windows 11";
                 }
                 else if (majorPlatformVersion > 0) {
-                    return "Windows 10";
+                    system = "Windows 10";
                 }
+                else {
+                    system = getOtherSystem()
+                }
+                message['system'] = system
+                callback(message).then()
+                return;
             }
-            return getOtherSystem()
+            system = getOtherSystem()
+            message['system'] = system
+            callback(message).then()
         });
 }
 

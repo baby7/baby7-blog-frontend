@@ -72,7 +72,6 @@ export default {
             })
             if(this.$route.query.seo == null) {
                 // 添加足迹
-                let system = getSystem()
                 let browser = getBrowser()
                 let se = getSE()
                 let from = null
@@ -82,14 +81,13 @@ export default {
                     keyword = se[1]
                 }
                 let message = {
-                    "system": system,
                     "browser": browser,
                     "searchEngine": from,
                     "keyword": keyword,
                     "url": location.href,
                     "type": "菜单页"
                 }
-                addFootprint(message).then()
+                getSystem(addFootprint, message)
             }
         },
         //分页

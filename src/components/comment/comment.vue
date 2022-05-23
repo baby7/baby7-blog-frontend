@@ -80,7 +80,7 @@
 
 <script>
 import { getCommentTree, addComment } from "@/api/comment";
-import { getSystem,getBrowser } from "@/util/message";
+import { getOtherSystem,getBrowser } from "@/util/message";
 import MarkdownPreview from "@/components/markdown/components/preview/index";
 
 export default {
@@ -127,7 +127,7 @@ export default {
         },
         Reply(){
             this.commentSubmit.browser = getBrowser()
-            this.commentSubmit.system = getSystem()
+            this.commentSubmit.system = getOtherSystem()
             addComment(this.commentSubmit).then(res => {
                 if(res.code === 0){
                     this.ShowMessage(res.msg, "success")
