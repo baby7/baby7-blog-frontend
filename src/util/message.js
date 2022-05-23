@@ -1,5 +1,22 @@
 // 获取系统和版本信息
 export function getSystem() {
+    // 首先判断win11
+    navigator.userAgentData.getHighEntropyValues(["platformVersion"])
+        .then(ua => {
+            if (navigator.userAgentData.platform === "Windows") {
+                const majorPlatformVersion = parseInt(ua.platformVersion.split('.')[0]);
+                if (majorPlatformVersion >= 13) {
+                    return "Windows 11";
+                }
+                else if (majorPlatformVersion > 0) {
+                    return "Windows 10";
+                }
+            }
+            return getOtherSystem()
+        });
+}
+
+export function getOtherSystem() {
     let sUserAgent = navigator.userAgent;
     let isWin = (navigator.platform === "Win32") || (navigator.platform === "Windows");
     let isMac = (navigator.platform === "Mac68K") || (navigator.platform === "MacPPC") || (navigator.platform === "Macintosh") || (navigator.platform == "MacIntel");
@@ -34,6 +51,8 @@ export function getSystem() {
     if (sUserAgent.indexOf("ipad") > -1) return "iPad"
     if (sUserAgent.indexOf("windows phone") > -1) return "Windows Phone"
     if (sUserAgent.indexOf("symbianos") > -1) return "SymbianOS"
+    // 判断不了的直接放user-agent
+    return sUserAgent;
 }
 
 // 获取浏览器信息
@@ -86,7 +105,7 @@ export function getSE() {
             return [dq[0], keyword];
         }
     }
-    return null;
+    return document.referrer;
 }
 
 export function getDomainQuery(url) {
