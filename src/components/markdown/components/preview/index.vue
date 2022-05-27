@@ -111,8 +111,18 @@
                 const img = new Image();
                 img.src = src;
                 img.onload = () => {
-                    const width = img.naturalWidth;
-                    const height = img.naturalHeight;
+                    let w = img.naturalWidth;
+                    let h = img.naturalHeight;
+                    if (w > 1500) {
+                        h = h * (1500 / w)
+                        w = 1500
+                    }
+                    if (h > 800) {
+                        w = w * (800 / h)
+                        h = 800
+                    }
+                    const width = w;
+                    const height = h;
                     if (height / width > 1.4) {
                         this.previewImgMode = 'horizontal';
                     } else {
