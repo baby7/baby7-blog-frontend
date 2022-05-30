@@ -16,6 +16,7 @@ export function getSystem(callback, message) {
                     system = getOtherSystem()
                 }
                 message['system'] = system
+                message['userAgent'] = navigator.userAgent;
                 callback(message).then()
                 return;
             }
