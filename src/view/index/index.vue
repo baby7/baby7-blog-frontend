@@ -39,8 +39,7 @@ export default {
                     createTime: '',
                     id: '',
                 }
-            ],
-            footprint: false
+            ]
         }
     },
     methods: {
@@ -50,8 +49,7 @@ export default {
                 this.blogList = res.data.records;
                 this.query.total = res.data.total;
             })
-            if(this.$route.query.seo == null && this.footprint === false) {
-                this.footprint = true
+            if(this.$route.query.seo == null) {
                 // 添加足迹
                 let browser = getBrowser()
                 let se = getSE()
@@ -78,7 +76,9 @@ export default {
         }
     },
     mounted() {
-        this.getData()
+        if (this.$store.state.blogTitleChange === true) {
+            this.getData()
+        }
         this.$store.state.blogTitleChange = !this.$store.state.blogTitleChange
     }
 }
