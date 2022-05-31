@@ -51,7 +51,6 @@ export default {
                 // 添加浏览记录
                 look({id:this.$route.query.id}).then()
                 // 添加足迹
-                let browser = getBrowser()
                 let se = getSE()
                 let from = null
                 let keyword = null
@@ -60,14 +59,13 @@ export default {
                     keyword = se[1]
                 }
                 let message = {
-                    "browser": browser,
                     "searchEngine": from,
                     "keyword": keyword,
                     "url": location.href,
                     "blogId": this.$route.query.id,
                     "type": "博客"
                 }
-                getSystem(addFootprint, message)
+                getSystem(addFootprint, message, new Browser())
             }
         },
         ChangeMarkdownTheme(){
