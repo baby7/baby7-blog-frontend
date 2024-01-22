@@ -65,15 +65,15 @@ export default {
                     name: "博主",
                     path: '/myself',
                 },
-                {
-                    name: "开源地址",
-                    path: 'https://github.com/',
-                    subItems: [
-                        {link: 'https://github.com/baby7/baby7-blog-frontend', text: '前端源码'},
-                        {link: 'https://github.com/baby7/baby7-blog-manage', text: '管理端源码'},
-                        {link: 'https://github.com/baby7/baby7-blog-server', text: '后端源码'}
-                    ]
-                }
+                // {
+                //     name: "开源地址",
+                //     path: 'https://github.com/',
+                //     subItems: [
+                //         {link: 'https://github.com/baby7/baby7-blog-frontend', text: '前端源码'},
+                //         {link: 'https://github.com/baby7/baby7-blog-manage', text: '管理端源码'},
+                //         {link: 'https://github.com/baby7/baby7-blog-server', text: '后端源码'}
+                //     ]
+                // }
             ],
             showMenu: false
         }
