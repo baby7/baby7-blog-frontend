@@ -3,9 +3,12 @@
         <div class="header-info">
             <img :src="avatar" class="header-img" style="height: 35px">
             <span class="header-title">
-                <router-link to="/index">
-                    {{ title }}
-                </router-link>
+<!--                <router-link to="/index">-->
+<!--                    {{ title }}-->
+<!--                </router-link>-->
+              <a href="/index">
+                {{ title }}
+              </a>
             </span>
         </div>
         <MenuHeader v-show="showMenu" :config-nav="configNav"/>

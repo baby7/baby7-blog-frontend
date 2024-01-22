@@ -48,6 +48,7 @@ export default {
             getBlogPage(this.query).then(res => {
                 this.blogList = res.data.records;
                 this.query.total = res.data.total;
+                window.scrollTo(0, 0); // 将页面滚动到顶部
             })
             if(this.$route.query.seo == null) {
                 // 添加足迹
@@ -74,10 +75,11 @@ export default {
         }
     },
     mounted() {
-        if (this.$store.state.blogTitleChange === true) {
-            this.getData()
-        }
+        // if (this.$store.state.blogTitleChange === true) {
+        //     this.getData()
+        // }
         this.$store.state.blogTitleChange = !this.$store.state.blogTitleChange
+        this.getData()
     }
 }
 </script>

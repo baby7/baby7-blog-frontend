@@ -187,9 +187,10 @@ export default {
 
         > .paging-item {
             display: inline;
-            font-size: 14px;
+            margin-right: 2px;
+            font-size: 18px;
             position: relative;
-            padding: 6px 8px;
+            padding: 8px 8px;
             line-height: 1.42857143;
             text-decoration: none;
             box-shadow: 0 1px 6px 0 rgba(0, 0, 0, 0.9);
