@@ -64,3 +64,4 @@ jobs:
           script: |
             docker pull registry.cn-hangzhou.aliyuncs.com/baby7/baby7-blog-frontend
             docker-compose up -d --build
+
