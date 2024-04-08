@@ -28,16 +28,27 @@ jobs:
     - run: npm run build --if-present
     - run: npm test
     - run: ls
+
     # 通过 Dockerfile 构建镜像
     - name: Build Docker Image
       run: docker build . --file Dockerfile --tag ${{ secrets.IMAGE_NAME }}:$(date +%s)
 
+      # 推送镜像到 Docker Hub
     - name: Publish to Docker Repository
       uses: elgohr/Publish-Docker-Github-Action@master
       with:
         name: ${{ secrets.IMAGE_NAME }}:latest
         username: ${{ secrets.DOCKER_USERNAME }}
         password: ${{ secrets.DOCKER_PASSWORD }}
+
+      # 推送镜像到阿里云仓库
+    - name: Publish to Aliyun Docker Repository
+      run: |
+        docker login --username=${{ secrets.ALIYUN_DOCKER_USERNAME }} --password=${{ secrets.ALIYUN_DOCKER_PASSWORD }} registry.cn-hangzhou.aliyuncs.com
+        docker build -t ${{ secrets.IMAGE_NAME }} . 
+        docker tag ${{ secrets.IMAGE_NAME }} registry.cn-hangzhou.aliyuncs.com/baby7/baby7-blog-frontend:latest
+        docker push registry.cn-hangzhou.aliyuncs.com/baby7/baby7-blog-frontend:latest
+
   pull-docker:
     needs: [build]
     name: Pull Docker
@@ -51,5 +62,5 @@ jobs:
           password: ${{ secrets.SERVER_PWD }}
           port: ${{ secrets.SERVER_PORT }}
           script: |
-            docker pull ${{ secrets.IMAGE_NAME }}
+            docker pull registry.cn-hangzhou.aliyuncs.com/baby7/baby7-blog-frontend
             docker-compose up -d --build
