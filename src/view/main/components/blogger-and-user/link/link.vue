@@ -1,7 +1,14 @@
 <template>
     <div class="content-real">
         <!-- 标题 -->
-        <span class="right-label-title"><i class="el-icon-link"></i>&nbsp;友链</span>
+        <span class="right-label-title">
+          &nbsp;◈&nbsp;友链
+        </span>
+        <span class="add-user">
+          <router-link class="blog-link" :to="'/comment'">
+            +友链
+          </router-link>
+        </span>
         <!-- 分隔 -->
         <hr class="title-line-right">
         <!-- 链接表 -->
@@ -47,6 +54,16 @@ export default {
         margin-left: 5px;
         color: $p-color-text;
         text-decoration: none;
+    }
+
+    .add-user {
+      float:right;
+    }
+    .add-user > a {
+      color: $p-color-text;
+    }
+    .add-user > a:hover {
+      border-bottom: 1px solid $p-color-text;
     }
 }
 

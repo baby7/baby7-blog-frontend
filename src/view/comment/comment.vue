@@ -52,7 +52,7 @@ export default {
     mounted() {
         this.getData()
         this.$store.state.blogTitle = "留言板"
-        this.$store.state.blogDescription = ""
+        this.$store.state.blogDescription = "可以在这里留言加友链哦(*^▽^*)"
         this.$store.state.blogTitleShow = true
         document.title = this.$store.state.blogTitle + " - " + this.$store.state.title
     },

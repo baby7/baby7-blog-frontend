@@ -1,7 +1,7 @@
 <template>
     <div class="content-real">
         <!-- 标题 -->
-        <span class="right-label-title"><i class="el-icon-link"></i>&nbsp;社交</span>
+        <span class="right-label-title">&nbsp;◈&nbsp;社交</span>
         <!-- 分隔 -->
         <hr class="title-line-right">
         <!-- 链接表 -->

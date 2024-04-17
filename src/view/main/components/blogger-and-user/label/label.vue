@@ -1,7 +1,7 @@
 <template>
     <div class="content-real">
         <!-- 标题 -->
-        <span class="right-label-title"><i class="el-icon-collection-tag"></i>&nbsp;标签</span>
+        <span class="right-label-title">&nbsp;◈&nbsp;标签</span>
         <!-- 分隔 -->
         <hr class="title-line-right">
         <template>
