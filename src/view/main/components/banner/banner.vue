@@ -18,7 +18,7 @@ export default {
   name: "Banner",
   data() {
     return {
-      p0Src: 'https://media.baby7blog.com/blog/img/banner/pp0.png',
+      p0Src: 'https://media.baby7blog.com/blog/img/banner/ppp0.png',
       p1Src: 'https://media.baby7blog.com/blog/img/banner/pp1.png',
       p2Src: 'https://media.baby7blog.com/blog/img/banner/pp2.png',
       p3Src: 'https://media.baby7blog.com/blog/img/banner/pp3.png',
@@ -30,7 +30,7 @@ export default {
       p3Top: 0,
       p4Top: 0,
       p6Top: 0,
-      bannerTitleMarginTop: 100,
+      bannerTitleMarginTop: 30,
       requestId: undefined, // 用于跟踪 requestAnimationFrame 的标识
     };
   },
@@ -66,7 +66,7 @@ export default {
       this.p3Top = value * 0.16;
       this.p4Top = value * 0.12;
       this.p6Top = 0;
-      this.bannerTitleMarginTop = value * 1.0 + 100;
+      this.bannerTitleMarginTop = value * 1.1 + 30;
       // 使用 requestAnimationFrame 更新样式
       if (this.requestId === undefined) {
         this.requestId = requestAnimationFrame(this.updateStyles);
@@ -84,7 +84,7 @@ export default {
 section {
   position: relative;
   width: 100%;
-  height: 78vh;
+  height: 75vh;
   padding: 0px;
   display: flex;
   justify-content: center;
