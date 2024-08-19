@@ -15,6 +15,7 @@
         <div>
             <span class="link-item" v-for="link in linkList">
                 <img :src="link.logo" class="link-img" alt="link.name">
+                &nbsp;
                 <a :href="link.url" target="_blank">{{link.title}}</a>
             </span>
         </div>

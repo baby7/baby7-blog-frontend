@@ -69,6 +69,7 @@ export default {
             }
         },
         ChangeMarkdownTheme(){
+            localStorage.setItem("baby7-style", "black"); //暂时写死黑色
             if(localStorage.getItem("baby7-style") === "light"){
                 this.markdownTheme = "light"
             }

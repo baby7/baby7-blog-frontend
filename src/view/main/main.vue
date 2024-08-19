@@ -4,12 +4,14 @@
         <Header
             :avatar="settingData.icon"
             :title="settingData.title"/>
-        <!-- 标题栏 -->
         <div v-if="$store.state.blogTitleShow" class="header-wrap">
-            <div class="container">
-                <h1>{{$store.state.blogTitle}}</h1>
-                <p class="description">{{$store.state.blogDescription}}</p>
-            </div>
+<!--            <div class="container">-->
+<!--                <h1>{{$store.state.blogTitle}}</h1>-->
+<!--                <p class="description">{{$store.state.blogDescription}}</p>-->
+<!--            </div>-->
+            <Banner
+              :blogTitle="$store.state.blogTitle"
+              :blogDescription="$store.state.blogDescription"/>
         </div>
         <!-- 中间块 -->
         <div class="main">
@@ -61,14 +63,15 @@
     import Bottom               from "@/view/main/components/bottom/bottom";
     import MainContent          from "@/view/main/components/main-content/main-content";
     import Header               from "@/view/main/components/blogger-and-user/header/header"
+    import Banner               from "@/view/main/components/banner/banner";
     import { getSetting }       from '@/api/setting'
     import Toast                from "@/components/comment/toast/toast";
     import BackgroundParticles  from "@/components/background-particles/background-particles";
     import BackgroundStarfield  from "@/components/background-starfield/background-starfield";
     import Live2dw              from "@/components/live2dw/live2dx"
-    import FlyingFish from "@/components/flying-fish/flying-fish";
-    import BackToTop from "@/components/back-to-top/back-to-top";
-    import BackgroundSnow from "@/components/background-snow/background-snow";
+    import FlyingFish           from "@/components/flying-fish/flying-fish";
+    import BackToTop            from "@/components/back-to-top/back-to-top";
+    import BackgroundSnow       from "@/components/background-snow/background-snow";
 
     export default {
         name: "Main",
@@ -81,6 +84,7 @@
             BloggerAndUser,
             Bottom,
             Header,
+            Banner,
             BackgroundParticles,
             BackgroundStarfield,
             Live2dw
@@ -303,20 +307,21 @@
         padding: 0 15px;
     }
     .header-wrap {
-        margin-top: -70px;
+        //margin-top: -70px;
         text-align: center;
-        background: $p-background-img;
-        min-height: 270px;
+        //background: $p-background-img;
+        //min-height: 270px;
         width: 100%;
-        -webkit-background-size: 100%;
-        -moz-background-size: 100%;
-        -o-background-size: 100%;
-        background-size: 100%;
-        padding-top: 150px;
+        //-webkit-background-size: 100%;
+        //-moz-background-size: 100%;
+        //-o-background-size: 100%;
+        //background-size: 100%;
+        //padding-top: 150px;
     }
     .container {
         padding-top: 6%;
         padding-bottom: 12%;
+        z-index: 1;
     }
     .container > h1 {
         color: #ffffff;

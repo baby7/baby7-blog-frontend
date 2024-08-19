@@ -2,9 +2,9 @@
     <div class="nav">
         <div class="nav-a">
             <ul class="nav-a-ul">
-                <li class="nav-style-li">
-                    <StyleChange/>
-                </li>
+<!--                <li class="nav-style-li">-->
+<!--                    <StyleChange/>-->
+<!--                </li>-->
                 <li class="nav-search-li">
                     <BlogSearch :items="blogList"/>
                 </li>

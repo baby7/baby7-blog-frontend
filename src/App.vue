@@ -8,6 +8,7 @@
 export default {
     name: 'app',
     created() {
+      localStorage.setItem("baby7-style", "black"); //暂时写死黑色
         if(localStorage.getItem("baby7-style") === "light"){
             this.$plain.changeTheme("default")
             document.getElementById('css').href = 'static/css/scroll-bar-light.css'

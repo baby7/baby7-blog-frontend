@@ -9,7 +9,20 @@
     <title>博客</title>
     <!-- 滚动条样式 -->
     <style>
-        body { background-color: #202124; }
+        * {
+            margin: 0;
+            padding: 0;
+            //box-sizing: border-box;
+            //font-family: 'Poppins', sans-serif;
+            /* 当用户手动导航或者 CSSOM scrolling API 触发滚动操作时 */
+            //scroll-behavior: smooth;
+        }
+        body {
+            //background-color: #202124;
+            min-height: 100vh;
+            overflow-x: hidden;
+            background: linear-gradient(#2b1055,#7597de);
+        }
         ::-webkit-scrollbar { width: 5px; height: 4px; background-color: #202124; }
         ::-webkit-scrollbar-track { border-radius: 20px; background: #202124; }
         ::-webkit-scrollbar-thumb { border-radius: 20px; background-color: #3F86E8; }
