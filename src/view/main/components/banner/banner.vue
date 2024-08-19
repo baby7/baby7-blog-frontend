@@ -18,12 +18,12 @@ export default {
   name: "Banner",
   data() {
     return {
-      p0Src: 'https://media.baby7blog.com/blog/img/banner/p0.png',
-      p1Src: 'https://media.baby7blog.com/blog/img/banner/p1.png',
-      p2Src: 'https://media.baby7blog.com/blog/img/banner/p2.png',
-      p3Src: 'https://media.baby7blog.com/blog/img/banner/p3.png',
-      p4Src: 'https://media.baby7blog.com/blog/img/banner/p4.png',
-      p6Src: 'https://media.baby7blog.com/blog/img/banner/p6.png',
+      p0Src: 'https://media.baby7blog.com/blog/img/banner/pp0.png',
+      p1Src: 'https://media.baby7blog.com/blog/img/banner/pp1.png',
+      p2Src: 'https://media.baby7blog.com/blog/img/banner/pp2.png',
+      p3Src: 'https://media.baby7blog.com/blog/img/banner/pp3.png',
+      p4Src: 'https://media.baby7blog.com/blog/img/banner/pp4.png',
+      p6Src: 'https://media.baby7blog.com/blog/img/banner/pp6.png',
       p0Top: 0,
       p1Top: 0,
       p2Top: 0,
@@ -84,7 +84,7 @@ export default {
 section {
   position: relative;
   width: 100%;
-  height: 55vh;
+  height: 78vh;
   padding: 0px;
   display: flex;
   justify-content: center;
