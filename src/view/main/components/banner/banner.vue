@@ -1,13 +1,15 @@
 <template>
   <section>
-    <img :src="p0Src" id="p0" :style="{ transform: `translateY(${p0Top}px)` }" alt="p0">
-    <img :src="p1Src" id="p1" :style="{ transform: `translateY(${p1Top}px)` }" alt="p1">
-    <img :src="p2Src" id="p2" :style="{ transform: `translateY(${p2Top}px)` }" alt="p2">
-    <img :src="p3Src" id="p3" :style="{ transform: `translateY(${p3Top}px)` }" alt="p3">
-    <img :src="p4Src" id="p4" :style="{ transform: `translateY(${p4Top}px)` }" alt="p4">
-    <img :src="p6Src" id="p6" :style="{ transform: `translateY(${p6Top}px)` }" alt="p6">
-    <div id="banner_title" class="container" :style="{ marginRight: `0px`, marginTop: `${bannerTitleMarginTop}px`}">
-        <h1 style="z-index: 1000">{{blogTitle}}</h1>
+    <img :src="p0Src" id="p0" :style="{ transform: `translateY(${p0Top}px)`, zIndex: `100` }" alt="p0">
+    <img :src="p1Src" id="p1" :style="{ transform: `translateY(${p1Top}px)`, zIndex: `200` }" alt="p1">
+    <img :src="p2Src" id="p2" :style="{ transform: `translateY(${p2Top}px)`, zIndex: `300` }" alt="p2">
+    <img :src="p3Src" id="p3" :style="{ transform: `translateY(${p3Top}px)`, zIndex: `400` }" alt="p3">
+    <img :src="p4Src" id="p4" :style="{ transform: `translateY(${p4Top}px)`, zIndex: `500` }" alt="p4">
+    <img :src="p6Src" id="p6" :style="{ transform: `translateY(${p6Top}px)`, zIndex: `600` }" alt="p6">
+    <div id="banner_title"
+         class="container"
+         :style="{ marginRight: `0px`, marginTop: `${bannerTitleMarginTop}px`, width: `75%`}">
+        <h1>{{blogTitle}}</h1>
         <p class="description">{{blogDescription}}</p>
     </div>
   </section>
@@ -18,7 +20,7 @@ export default {
   name: "Banner",
   data() {
     return {
-      p0Src: 'https://media.baby7blog.com/blog/img/banner/ppp0.png',
+      p0Src: 'https://media.baby7blog.com/blog/img/banner/pppp0.png',
       p1Src: 'https://media.baby7blog.com/blog/img/banner/pp1.png',
       p2Src: 'https://media.baby7blog.com/blog/img/banner/pp2.png',
       p3Src: 'https://media.baby7blog.com/blog/img/banner/pp3.png',
@@ -30,7 +32,7 @@ export default {
       p3Top: 0,
       p4Top: 0,
       p6Top: 0,
-      bannerTitleMarginTop: 30,
+      bannerTitleMarginTop: -200,
       requestId: undefined, // 用于跟踪 requestAnimationFrame 的标识
     };
   },
@@ -60,13 +62,13 @@ export default {
     },
     handleScroll() {
       const value = window.scrollY;
-      this.p0Top = value * 0.6;
-      this.p1Top = value * 0.36;
-      this.p2Top = value * 0.24;
+      this.p0Top = value * 0.8;
+      this.p1Top = value * 0.5;
+      this.p2Top = value * 0.3;
       this.p3Top = value * 0.16;
       this.p4Top = value * 0.12;
       this.p6Top = 0;
-      this.bannerTitleMarginTop = value * 1.1 + 30;
+      this.bannerTitleMarginTop = value * 1.6 - 200;
       // 使用 requestAnimationFrame 更新样式
       if (this.requestId === undefined) {
         this.requestId = requestAnimationFrame(this.updateStyles);
@@ -109,7 +111,7 @@ section {
     width: 100%;
     //height: 100px;
     background: linear-gradient(to top, #1c0522, transparent);
-    z-index: 1000;
+    //z-index: 1000;
   }
 }
 </style>

@@ -107,7 +107,7 @@ export default {
         height: 35px;
         top: 0;
         width: 100%;
-        z-index: 20;
+        z-index: 1000;
         padding: .7rem;
         background-color:  rgba(0, 0, 0, 0.5);;
         font-size: .9rem;
