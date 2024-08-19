@@ -25,6 +25,7 @@ export default {
 
 <style scoped>
     .transfer-statement {
-        margin-left: 10px;
+      margin-left: 10px;
+      margin-bottom: 10px;
     }
 </style>

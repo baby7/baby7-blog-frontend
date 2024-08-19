@@ -321,7 +321,7 @@
     .container {
         padding-top: 6%;
         padding-bottom: 12%;
-        z-index: 150;
+        z-index: 250;
     }
     .container > h1 {
         color: #ffffff;

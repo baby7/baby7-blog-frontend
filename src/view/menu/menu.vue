@@ -124,17 +124,18 @@ export default {
 @include themeify {
     .menu-list {
         padding-left: 0;
+        margin-bottom: 10px;
     }
     .menu-item {
         display: inline;
         font-size: 14px;
         position: relative;
         padding: 6px;
-        line-height: 1.42857143;
+        line-height: 2.5;
         text-decoration: none;
         box-shadow: 0 1px 6px 0 rgba(0, 0, 0, 0.9);
         background-color: $p-background-color;
-        margin-left: 6px;
+        margin-right: 6px;
         cursor: pointer;
         color: $p-background-color-difference;
         border-radius: 4px;

@@ -19,7 +19,7 @@
         <!-- 上一篇和下一篇 -->
         <div class="blog-links">
             <div class="blog-prev">
-                <p>上一篇</p>
+                <p style="margin-top: 2rem">上一篇</p>
                 <p>
                     <template v-if="blogContent.prev">
                         <router-link class="blog-link" :to="'/myBlog?id=' + blogContent.prev.id">
@@ -32,7 +32,7 @@
                 </p>
             </div>
             <div class="blog-next">
-                <p>下一篇</p>
+                <p style="margin-top: 2rem">下一篇</p>
                 <p>
                     <template v-if="blogContent.next">
                         <router-link class="blog-link" :to="'/myBlog?id=' + blogContent.next.id">

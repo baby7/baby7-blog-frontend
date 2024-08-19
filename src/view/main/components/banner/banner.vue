@@ -20,7 +20,7 @@ export default {
   name: "Banner",
   data() {
     return {
-      p0Src: 'https://media.baby7blog.com/blog/img/banner/pppp0.png',
+      p0Src: 'https://media.baby7blog.com/blog/img/banner/ppp0.png',
       p1Src: 'https://media.baby7blog.com/blog/img/banner/pp1.png',
       p2Src: 'https://media.baby7blog.com/blog/img/banner/pp2.png',
       p3Src: 'https://media.baby7blog.com/blog/img/banner/pp3.png',
@@ -32,7 +32,7 @@ export default {
       p3Top: 0,
       p4Top: 0,
       p6Top: 0,
-      bannerTitleMarginTop: -200,
+      bannerTitleMarginTop: -100,
       requestId: undefined, // 用于跟踪 requestAnimationFrame 的标识
     };
   },
@@ -62,13 +62,13 @@ export default {
     },
     handleScroll() {
       const value = window.scrollY;
-      this.p0Top = value * 0.8;
-      this.p1Top = value * 0.5;
-      this.p2Top = value * 0.3;
+      this.p0Top = value * 0.6;
+      this.p1Top = value * 0.36;
+      this.p2Top = value * 0.24;
       this.p3Top = value * 0.16;
       this.p4Top = value * 0.12;
       this.p6Top = 0;
-      this.bannerTitleMarginTop = value * 1.6 - 200;
+      this.bannerTitleMarginTop = value * 1.1 - 100;
       // 使用 requestAnimationFrame 更新样式
       if (this.requestId === undefined) {
         this.requestId = requestAnimationFrame(this.updateStyles);
@@ -86,7 +86,7 @@ export default {
 section {
   position: relative;
   width: 100%;
-  height: 75vh;
+  height: 100vh;
   padding: 0px;
   display: flex;
   justify-content: center;
@@ -102,6 +102,11 @@ section {
     object-fit: cover;
     pointer-events: none;
     will-change: transform; // 提前告知浏览器哪些属性可能会发生变化
+  }
+
+  #p4,#p3,#p2,#p1,#p0 {
+    width: 100%;
+    height: 100%;
   }
 
   section::before {
