@@ -109,7 +109,7 @@ export default {
         width: 100%;
         z-index: 1000;
         padding: .7rem;
-        background-color:  rgba(0, 0, 0, 0.5);;
+        background-color:  rgba(0, 0, 0, 0.2);;
         font-size: .9rem;
         box-shadow: $p-color-box-shadow-start 0 2px 4px, $p-color-box-shadow-end 0 0 6px;
     }

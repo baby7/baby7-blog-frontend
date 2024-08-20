@@ -29,7 +29,8 @@ export default {
     .content-real {
         margin-bottom: 15px;
         padding: 5px 5px 5px 5px;
-        background-color: $p-background-color;
+        //background-color: $p-background-color;
+        background-color: #949aad1f;
         //overflow: hidden;
         border-radius: .25rem;
         box-shadow: 0 1px 6px 0 rgba(0, 0, 0, 0.9);

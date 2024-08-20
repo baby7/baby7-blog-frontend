@@ -64,9 +64,11 @@ export default {
         cursor: text;
         width: 10rem;
         height: 2rem;
-        color: $p-background-color-difference;
+        //color: $p-background-color-difference;
+        color: #fff;
         display: inline-block;
-        border: 1px solid $p-background-color-difference;
+        //border: 1px solid $p-background-color-difference;
+        border: 1px solid #fff;
         border-radius: .25rem;
         font-size: .9rem;
         line-height: 2rem;
@@ -75,6 +77,9 @@ export default {
         transition: all .2s ease;
         background: transparent;
         background-size: 1rem;
+    }
+    .search-input::placeholder {
+        color: #fff;
     }
     .search-input:focus {
         border: 1px solid $p-color-text;

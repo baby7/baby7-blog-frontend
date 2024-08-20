@@ -1,6 +1,6 @@
 <template>
     <div>
-        <div class="comment-wrap">
+        <div id="comment-top" class="comment-wrap">
             <div class="comment-header">
                 <input name="nick" v-model="commentSubmit.nickname" placeholder="昵称" class="comment-input" type="text">
                 <input name="mail" v-model="commentSubmit.email" placeholder="邮箱" class="comment-input" type="email">
@@ -162,6 +162,26 @@ export default {
             this.commentSubmit.replyId = replyId
             this.commentSubmit.content = ""
             this.commentPrompt = "@" + commentPrompt
+            this.goContent()
+        },
+        goContent() {
+            var comment = document.getElementById("comment-top");
+            var commentTop = comment.offsetTop + window.innerHeight * 0.95;
+            let stepNumber = 0;
+            var timer = setInterval(function () {
+                let osTop = document.documentElement.scrollTop || document.body.scrollTop;    // 当前距离顶部的距离
+                let ispeed = 100;                                 // 下次要移动的距离
+                let targetTop = commentTop;                                    // 移动的最终目标
+                if ((osTop - ispeed) <= targetTop) {    // 如果移动后的位置超过目标位置，则移动到目标位置
+                    osTop = targetTop;
+                    ispeed = 0;
+                }
+                document.documentElement.scrollTop = document.body.scrollTop = osTop - ispeed;
+                stepNumber = stepNumber + 1;
+                if (osTop <= targetTop) {
+                    clearInterval(timer);
+                }
+            }, 10)
         }
     },
     mounted() {
@@ -174,6 +194,7 @@ export default {
 @include themeify {
     .comment-wrap {
         border: 1px solid transparent;
+        background-color: #949aad1f;
         border-radius: 4px;
         margin-bottom: 10px;
         overflow: hidden;
@@ -250,11 +271,8 @@ export default {
         user-select: none;
         outline: none;
     }
-
-
-
-
     .comment-list {
+        background-color: #949aad1f;
         border-radius: 4px;
         margin-bottom: 10px;
         padding: 10px 20px 10px 10px;
