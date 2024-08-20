@@ -1,6 +1,5 @@
 <template>
-    <canvas id="snowCanvas" class="background-particles">
-    </canvas>
+    <canvas id="snowCanvas" class="background-particles"></canvas>
 </template>
 
 <script>
@@ -23,7 +22,7 @@ export default {
                 this.y = this.randBetween(0, -window.innerHeight);
                 this.vx = this.randBetween(-3, 3);
                 this.vy = this.randBetween(2, 5);
-                this.radius = this.randBetween(1, 2);
+                this.radius = this.randBetween(2, 3); // 雪花半径
                 this.alpha = this.randBetween(0.1, 0.9);
             }
 
@@ -61,7 +60,7 @@ export default {
             }
 
             createSnowflakes() {
-                const flakes = window.innerWidth / 4;
+                const flakes = window.innerWidth / 10;   // 雪花数量
                 this.snowflakes = [];
                 for (let s = 0; s < flakes; s++) {
                     this.snowflakes.push(new Snowflake());

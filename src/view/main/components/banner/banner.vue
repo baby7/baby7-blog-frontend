@@ -16,16 +16,17 @@
 </template>
 
 <script>
+const imgUrl = "https://media.baby7blog.com/blog/img/";
 export default {
   name: "Banner",
   data() {
     return {
-      p0Src: 'https://media.baby7blog.com/blog/img/banner/ppp0.png',
-      p1Src: 'https://media.baby7blog.com/blog/img/banner/pp1.png',
-      p2Src: 'https://media.baby7blog.com/blog/img/banner/pp2.png',
-      p3Src: 'https://media.baby7blog.com/blog/img/banner/pp3.png',
-      p4Src: 'https://media.baby7blog.com/blog/img/banner/pp4.png',
-      p6Src: 'https://media.baby7blog.com/blog/img/banner/pp6.png',
+      p0Src: imgUrl + 'banner/ppp0.png',
+      p1Src: imgUrl + 'banner/pp1.png',
+      p2Src: imgUrl + 'banner/pp2.png',
+      p3Src: imgUrl + 'banner/pp3.png',
+      p4Src: imgUrl + 'banner/pp4.png',
+      p6Src: imgUrl + 'banner/pp6.png',
       p0Top: 0,
       p1Top: 0,
       p2Top: 0,
@@ -107,6 +108,11 @@ section {
   #p4,#p3,#p2,#p1,#p0 {
     width: 100%;
     height: 100%;
+  }
+
+  #p6 {
+    width: 100%;
+    height: 150%;
   }
 
   section::before {
