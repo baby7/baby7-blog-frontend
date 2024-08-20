@@ -134,6 +134,7 @@ section {
     margin-top: 50rem;
     width: 4%;
     height: 8%;
+    -webkit-animation: bounce 2s 1s infinite;
   }
 
   #p4,#p3,#p2,#p1,#p0 {
@@ -154,6 +155,39 @@ section {
     //height: 100px;
     background: linear-gradient(to top, #1c0522, transparent);
     //z-index: 1000;
+  }
+}
+@-webkit-keyframes bounce {
+  0%,10%,25%,40%,50% {
+    -webkit-transform: translateY(0) rotate(0deg);
+    transform: translateY(0) rotate(0deg)
+  }
+
+  20% {
+    -webkit-transform: translateY(-10px) rotate(0deg);
+    transform: translateY(-10px) rotate(0deg)
+  }
+
+  30% {
+    -webkit-transform: translateY(-5px) rotate(0deg);
+    transform: translateY(-5px) rotate(0deg)
+  }
+}
+
+@keyframes bounce {
+  0%,10%,25%,40%,50% {
+    -webkit-transform: translateY(0) rotate(0deg);
+    transform: translateY(0) rotate(0deg)
+  }
+
+  20% {
+    -webkit-transform: translateY(-10px) rotate(0deg);
+    transform: translateY(-10px) rotate(0deg)
+  }
+
+  30% {
+    -webkit-transform: translateY(-5px) rotate(0deg);
+    transform: translateY(-5px) rotate(0deg)
   }
 }
 </style>
