@@ -89,15 +89,15 @@ export default {
     },
     goContent() {
       var timer = setInterval(function () {
-        let osTop = document.documentElement.scrollTop || document.body.scrollTop;
-        let ispeed = Math.floor(-osTop / 5);
-        let targetTop = window.innerHeight * 0.95;
-        if ((osTop + ispeed) < targetTop) {
+        let osTop = document.documentElement.scrollTop || document.body.scrollTop;    // 当前距离顶部的距离
+        let ispeed = 30;                                 // 下次要移动的距离
+        let targetTop = window.innerHeight * 0.95;                                    // 移动的最终目标
+        if ((osTop + ispeed) >= targetTop) {    // 如果移动后的位置超过目标位置，则移动到目标位置
           osTop = targetTop;
           ispeed = 0;
         }
         document.documentElement.scrollTop = document.body.scrollTop = osTop + ispeed;
-        if (osTop <= targetTop) {
+        if (osTop >= targetTop) {
           clearInterval(timer);
         }
       }, 10)
