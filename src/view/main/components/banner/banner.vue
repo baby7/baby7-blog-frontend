@@ -91,12 +91,13 @@ export default {
       var timer = setInterval(function () {
         let osTop = document.documentElement.scrollTop || document.body.scrollTop;
         let ispeed = Math.floor(-osTop / 5);
-        if ((osTop + ispeed) < 900) {
-          osTop = 900;
+        let targetTop = window.innerWidth * 0.47;
+        if ((osTop + ispeed) < targetTop) {
+          osTop = targetTop;
           ispeed = 0;
         }
         document.documentElement.scrollTop = document.body.scrollTop = osTop + ispeed;
-        if (osTop <= 900) {
+        if (osTop <= targetTop) {
           clearInterval(timer);
         }
       }, 10)
