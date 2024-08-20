@@ -6,6 +6,11 @@
     <img :src="p3Src" id="p3" :style="{ transform: `translateY(${p3Top}px)`, zIndex: `400` }" alt="p3">
     <img :src="p4Src" id="p4" :style="{ transform: `translateY(${p4Top}px)`, zIndex: `500` }" alt="p4">
     <img :src="p6Src" id="p6" :style="{ transform: `translateY(${p6Top}px)`, zIndex: `600` }" alt="p6">
+    <a href="javascript:void(0);"
+       @click="goContent"
+       :style="{ transform: `translateY(${p6Top + 880}px)`, zIndex: `700`,  marginLeft: `920px` }">
+      <img :src="p7Src" id="p7" alt="p7">
+    </a>
     <div id="banner_title"
          class="container"
          :style="{ marginRight: `0px`, marginTop: `${bannerTitleMarginTop}px`, width: `75%`}">
@@ -17,6 +22,7 @@
 
 <script>
 const imgUrl = "https://media.baby7blog.com/blog/img/";
+// const imgUrl = "/static/";
 export default {
   name: "Banner",
   data() {
@@ -27,12 +33,14 @@ export default {
       p3Src: imgUrl + 'banner/pp3.png',
       p4Src: imgUrl + 'banner/pp4.png',
       p6Src: imgUrl + 'banner/pp6.png',
+      p7Src: imgUrl + 'banner/bottom.png',
       p0Top: 0,
       p1Top: 0,
       p2Top: 0,
       p3Top: 0,
       p4Top: 0,
       p6Top: 0,
+      p7Top: 0,
       bannerTitleMarginTop: -100,
       requestId: undefined, // 用于跟踪 requestAnimationFrame 的标识
     };
@@ -78,6 +86,20 @@ export default {
     updateStyles() {
       // 清除请求动画帧标识
       this.requestId = undefined;
+    },
+    goContent() {
+      var timer = setInterval(function () {
+        let osTop = document.documentElement.scrollTop || document.body.scrollTop;
+        let ispeed = Math.floor(-osTop / 5);
+        if ((osTop + ispeed) < 956) {
+          osTop = 956;
+          ispeed = 0;
+        }
+        document.documentElement.scrollTop = document.body.scrollTop = osTop + ispeed;
+        if (osTop <= 956) {
+          clearInterval(timer);
+        }
+      }, 10)
     }
   }
 }
@@ -103,6 +125,14 @@ section {
     object-fit: cover;
     pointer-events: none;
     will-change: transform; // 提前告知浏览器哪些属性可能会发生变化
+  }
+
+  a {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 4%;
+    height: 8%;
   }
 
   #p4,#p3,#p2,#p1,#p0 {
