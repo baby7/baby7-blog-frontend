@@ -8,7 +8,7 @@
     <img :src="p6Src" id="p6" :style="{ transform: `translateY(${p6Top}px)`, zIndex: `600` }" alt="p6">
     <a href="javascript:void(0);"
        @click="goContent"
-       :style="{ transform: `translateY(${p6Top + 880}px)`, zIndex: `700`,  marginLeft: `920px` }">
+       :style="{ transform: `translateY(${p6Top}px)`, zIndex: `700`}">
       <img :src="p7Src" id="p7" alt="p7">
     </a>
     <div id="banner_title"
@@ -91,12 +91,12 @@ export default {
       var timer = setInterval(function () {
         let osTop = document.documentElement.scrollTop || document.body.scrollTop;
         let ispeed = Math.floor(-osTop / 5);
-        if ((osTop + ispeed) < 956) {
-          osTop = 956;
+        if ((osTop + ispeed) < 900) {
+          osTop = 900;
           ispeed = 0;
         }
         document.documentElement.scrollTop = document.body.scrollTop = osTop + ispeed;
-        if (osTop <= 956) {
+        if (osTop <= 900) {
           clearInterval(timer);
         }
       }, 10)
@@ -129,8 +129,8 @@ section {
 
   a {
     position: absolute;
-    top: 0;
-    left: 0;
+    margin-left: 0;
+    margin-top: 50rem;
     width: 4%;
     height: 8%;
   }
