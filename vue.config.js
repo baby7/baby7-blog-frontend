@@ -1,5 +1,6 @@
 const path = require('path')
 const resolve = (dir) => path.join(__dirname, './', dir)
+const  Timestamp = new Date().getTime(); //时间戳
 module.exports = {
     lintOnSave: false,
     configureWebpack: {
@@ -16,6 +17,10 @@ module.exports = {
                 'theme': resolve('theme'),
             }
         },
+        output: {
+            filename: 'js/[name].'+Timestamp+'.js',
+            chunkFilename: 'js/[name].'+Timestamp+'.js'
+        }
     },
     devServer: {
         port: 80,
