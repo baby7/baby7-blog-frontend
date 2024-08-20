@@ -49,24 +49,10 @@ export default {
       this.requestId = undefined;
     },
     goTop() {
-      // let currentPosition;
-      // const animateScroll = () => {
-      //   currentPosition = document.documentElement.scrollTop || document.body.scrollTop;
-      //   currentPosition -= 30; // 调整滚动步长以加快回到顶部的速度
-      //   if (currentPosition > 0) {
-      //     window.scrollTo(0, currentPosition);
-      //     requestAnimationFrame(animateScroll);
-      //   } else {
-      //     window.scrollTo(0, 0);
-      //   }
-      // };
-      // requestAnimationFrame(animateScroll);
-
         var timer = setInterval(function () {
           let osTop = document.documentElement.scrollTop || document.body.scrollTop;
           let ispeed = Math.floor(-osTop / 5);
           document.documentElement.scrollTop = document.body.scrollTop = osTop + ispeed;
-          this.isTop = true;
           if (osTop === 0) {
               clearInterval(timer);
           }

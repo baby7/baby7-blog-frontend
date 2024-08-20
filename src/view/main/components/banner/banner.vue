@@ -88,6 +88,7 @@ export default {
       this.requestId = undefined;
     },
     goContent() {
+      let stepNumber = 0;
       var timer = setInterval(function () {
         let osTop = document.documentElement.scrollTop || document.body.scrollTop;    // 当前距离顶部的距离
         let ispeed = 30;                                 // 下次要移动的距离
@@ -97,7 +98,11 @@ export default {
           ispeed = 0;
         }
         document.documentElement.scrollTop = document.body.scrollTop = osTop + ispeed;
+        stepNumber = stepNumber + 1;
         if (osTop >= targetTop) {
+          clearInterval(timer);
+        }
+        if (stepNumber >= 40) {
           clearInterval(timer);
         }
       }, 10)

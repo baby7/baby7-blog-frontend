@@ -127,7 +127,7 @@ export default {
     }
 
     .nav-a-text {
-        font-size: 14px;
+        font-size: 16px;
         color: $p-background-color-extreme;
         text-decoration: none;
     }
@@ -151,7 +151,7 @@ export default {
 
     /** 二级菜单 */
     .menu_ul_text {
-        font-size: 14px;
+        font-size: 16px;
         color: $p-background-color-extreme;
         letter-spacing: 0;
         line-height: 30px;
