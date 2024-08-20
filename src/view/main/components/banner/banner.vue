@@ -91,7 +91,7 @@ export default {
       var timer = setInterval(function () {
         let osTop = document.documentElement.scrollTop || document.body.scrollTop;
         let ispeed = Math.floor(-osTop / 5);
-        let targetTop = window.innerWidth * 0.47;
+        let targetTop = window.innerHeight * 0.95;
         if ((osTop + ispeed) < targetTop) {
           osTop = targetTop;
           ispeed = 0;
