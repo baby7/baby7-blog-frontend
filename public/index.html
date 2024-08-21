@@ -15,6 +15,15 @@
         ::-webkit-scrollbar-track { border-radius: 20px; background: #202124; }
         ::-webkit-scrollbar-thumb { border-radius: 20px; background-color: #3F86E8; }
     </style>
+    <!-- 国家公祭日网站褪色一天 -->
+    <script>
+        var curDate = new Date();
+        var beginDate = new Date(curDate.getFullYear() + '/12/13');
+        var endDate = new Date(curDate.getFullYear() + '/12/14');
+        if (curDate >= beginDate && curDate <= endDate) {
+            document.write("<style>html {filter: progid:DXImageTransform.Microsoft.BasicImage(grayscale=1);-webkit-filter: grayscale(100%);}</style>");
+        }
+    </script>
 </head>
 <body style="margin: 0">
     <noscript>
