@@ -2,9 +2,9 @@
     <div>
         <div id="comment-top" class="comment-wrap">
             <div class="comment-header">
-                <input name="nick" v-model="commentSubmit.nickname" placeholder="昵称" class="comment-input" type="text">
-                <input name="mail" v-model="commentSubmit.email" placeholder="邮箱" class="comment-input" type="email">
-                <input name="link" v-model="commentSubmit.url" placeholder="网址(http://)" class="comment-input" type="text">
+                <input name="nick" v-model="commentSubmit.nickname" placeholder="昵称" class="comment-input" type="text" autocomplete="on">
+                <input name="mail" v-model="commentSubmit.email" placeholder="邮箱" class="comment-input" type="email" autocomplete="on">
+                <input name="link" v-model="commentSubmit.url" placeholder="网址(http://)" class="comment-input" type="text" autocomplete="on">
             </div>
             <div class="comment-edit">
                 <textarea id="comment-editor" v-model="commentSubmit.content" class="comment-editor comment-input" :placeholder="commentPrompt"></textarea>
@@ -128,6 +128,15 @@ export default {
         Reply(){
             this.commentSubmit.browser = getBrowser()
             this.commentSubmit.system = getOtherSystem()
+            if (this.commentSubmit.nickname != null) {
+                localStorage.setItem("comment-nickname", this.commentSubmit.nickname);
+            }
+            if (this.commentSubmit.email != null) {
+                localStorage.setItem("comment-email", this.commentSubmit.email);
+            }
+            if (this.commentSubmit.url != null) {
+                localStorage.setItem("comment-url", this.commentSubmit.url);
+            }
             addComment(this.commentSubmit).then(res => {
                 if(res.code === 0){
                     this.ShowMessage(res.msg, "success")
@@ -165,7 +174,7 @@ export default {
             this.goContent()
         },
         goContent() {
-            var comment = document.getElementById("comment-top");
+            var comment = document.getElementById("app");
             var commentTop = comment.offsetTop + window.innerHeight * 0.95;
             let stepNumber = 0;
             var timer = setInterval(function () {
@@ -186,6 +195,15 @@ export default {
     },
     mounted() {
         this.getData()
+        if (localStorage.getItem("comment-nickname")) {
+            this.commentSubmit.nickname = localStorage.getItem("comment-nickname");
+        }
+        if (localStorage.getItem("comment-email")) {
+            this.commentSubmit.email = localStorage.getItem("comment-email");
+        }
+        if (localStorage.getItem("comment-url")) {
+            this.commentSubmit.url = localStorage.getItem("comment-url");
+        }
     }
 }
 </script>
@@ -215,7 +233,7 @@ export default {
         background: transparent;
         width: 32%;
         //border-bottom: 1px dashed #555;
-        color: #555;
+        color: #ffffff;
     }
     .comment-edit {
         position: relative;
