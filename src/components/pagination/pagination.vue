@@ -5,14 +5,14 @@
             <li
                 v-if="index !== 1"
                 :class="['paging-item', 'paging-item--first', {'paging-item--disabled' : index === 1}]"
-                @click="first">First
+                @click="first">首页
             </li>
 
             <!-- prev -->
             <li
                 v-if="index !== 1"
                 :class="['paging-item', 'paging-item--prev', {'paging-item--disabled' : index === 1}]"
-                @click="prev">Prev
+                @click="prev">上一页
             </li>
 
             <li
@@ -35,14 +35,14 @@
             <li
                 v-if="index !== pages"
                 :class="['paging-item', 'paging-item--next', {'paging-item--disabled' : index === pages}]"
-                @click="next">Next
+                @click="next">下一页
             </li>
 
             <!-- last -->
             <li
                 v-if="index !== pages"
                 :class="['paging-item', 'paging-item--last', {'paging-item--disabled' : index === pages}]"
-                @click="last">Last
+                @click="last">末页
             </li>
         </ul>
     </div>
@@ -207,15 +207,15 @@ export default {
 
         > .paging-item {
             display: inline;
-            margin-right: 2px;
+            margin-right: 4px;
             font-size: 18px;
             position: relative;
-            padding: 8px 8px;
+            padding: 5px 8px 5px 10px;
             line-height: 1.42857143;
             text-decoration: none;
             box-shadow: 0 1px 6px 0 rgba(0, 0, 0, 0.9);
             background-color: $p-background-color;
-            margin-left: 3px;
+            margin-left: 4px;
             cursor: pointer;
             color: $p-background-color-difference;
             border-radius: 4px;
