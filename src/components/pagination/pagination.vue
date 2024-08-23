@@ -105,6 +105,26 @@ export default {
                 //父组件通过change方法来接受当前的页码
                 this.$emit('change', this.index)
             }
+            this.goContent()
+        },
+        goContent() {
+            var comment = document.getElementById("app");
+            var commentTop = comment.offsetTop + window.innerHeight * 0.95;
+            let stepNumber = 0;
+            var timer = setInterval(function () {
+                let osTop = document.documentElement.scrollTop || document.body.scrollTop;    // 当前距离顶部的距离
+                let ispeed = 100;                                 // 下次要移动的距离
+                let targetTop = commentTop;                                    // 移动的最终目标
+                if ((osTop - ispeed) <= targetTop) {    // 如果移动后的位置超过目标位置，则移动到目标位置
+                    osTop = targetTop;
+                    ispeed = 0;
+                }
+                document.documentElement.scrollTop = document.body.scrollTop = osTop - ispeed;
+                stepNumber = stepNumber + 1;
+                if (osTop <= targetTop) {
+                    clearInterval(timer);
+                }
+            }, 10)
         }
     },
     computed: {
