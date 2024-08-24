@@ -1,5 +1,6 @@
 const path = require('path')
 const CompressionPlugin = require('compression-webpack-plugin');
+const UglifyJsPlugin = require('uglifyjs-webpack-plugin') // 去掉注释
 const resolve = (dir) => path.join(__dirname, './', dir)
 const  Timestamp = new Date().getTime(); //时间戳
 module.exports = {
@@ -27,6 +28,19 @@ module.exports = {
                 test:/\.js$|\.html$|\.css/,//匹配文件名
                 threshold:10240,//对超过10kb的数据进行压缩
                 deleteOriginalAssets:false,//是否删除原文件
+            }),
+            new UglifyJsPlugin({
+                uglifyOptions: {
+                    output: {
+                        comments: false, // 去掉注释
+                    },
+                    warnings: false,
+                    compress: {
+                        drop_console: true,
+                        drop_debugger: false,
+                        pure_funcs: ['console.log']//移除console
+                    }
+                }
             })
         ]
     },
