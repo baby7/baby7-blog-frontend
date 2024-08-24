@@ -240,14 +240,14 @@
                     let s = document.getElementsByTagName("script")[0];
                     s.parentNode.insertBefore(th, s);
                   }
-                  // 头条自动收录
-                  if(this.settingData.push.toutiao.state){
-                    let el = document.createElement("script");
-                    el.src = "https://s3a.pstatp.com/toutiao/push.js?" + this.settingData.push.toutiao.value;
-                    el.id = "ttzz";
-                    let s = document.getElementsByTagName("script")[0];
-                    s.parentNode.insertBefore(el, s);
-                  }
+                  // 头条自动收录(头条推送失效)
+                  // if(this.settingData.push.toutiao.state){
+                  //   let el = document.createElement("script");
+                  //   el.src = "https://s3a.pstatp.com/toutiao/push.js?" + this.settingData.push.toutiao.value;
+                  //   el.id = "ttzz";
+                  //   let s = document.getElementsByTagName("script")[0];
+                  //   s.parentNode.insertBefore(el, s);
+                  // }
                 }
             }
         },
