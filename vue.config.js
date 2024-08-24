@@ -1,4 +1,5 @@
 const path = require('path')
+const CompressionPlugin = require('compression-webpack-plugin');
 const resolve = (dir) => path.join(__dirname, './', dir)
 const  Timestamp = new Date().getTime(); //时间戳
 module.exports = {
@@ -20,7 +21,14 @@ module.exports = {
         output: {
             filename: 'js/[name].'+Timestamp+'.js',
             chunkFilename: 'js/[name].'+Timestamp+'.js'
-        }
+        },
+        plugins: [
+            new CompressionPlugin({//gzip压缩配置
+                test:/\.js$|\.html$|\.css/,//匹配文件名
+                threshold:10240,//对超过10kb的数据进行压缩
+                deleteOriginalAssets:false,//是否删除原文件
+            })
+        ]
     },
     devServer: {
         port: 80,
@@ -36,6 +44,8 @@ module.exports = {
         }
     },
     css: {
+        extract: true,
+        sourceMap: false,
         loaderOptions: {
             sass: {
                 prependData: `@import "theme/styles/global.scss"; @import "src/global.scss";`

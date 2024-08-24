@@ -7,7 +7,6 @@
 </template>
 
 <script>
-import { debounce } from 'lodash';
 
 export default {
   name: "BackToTop",
@@ -31,9 +30,9 @@ export default {
     removeScrollListener() {
       window.removeEventListener('scroll', this.debouncedHandleScroll);
     },
-    debouncedHandleScroll: debounce(function() {
+    debouncedHandleScroll: function() {
       this.handleScroll();
-    }, 200),
+    },
     handleScroll() {
       this.isTopVisible = window.pageYOffset > 500;
       this.topStyle = this.isTopVisible ? -200 : -999;
