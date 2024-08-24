@@ -7,6 +7,7 @@
 <script>
 import Comment from "@/components/comment/comment"
 import { addFootprint } from "@/api/footprint";
+import { judgeSpider }      from "@/util/seo"
 import { getSystem,getBrowser,getSE } from "@/util/message";
 
 export default {
@@ -16,13 +17,14 @@ export default {
     },
     data() {
         return {
-            markdownTheme: "black-dark"
+            markdownTheme: "black-dark",
+            spider: true
         }
     },
     methods: {
         getData(){
             this.ChangeMarkdownTheme()
-            if(this.$route.query.seo == null) {
+            if(!this.spider) {
                 // 添加足迹
                 let se = getSE()
                 let from = null
@@ -51,6 +53,7 @@ export default {
         }
     },
     mounted() {
+        this.spider = judgeSpider()
         this.getData()
         this.$store.state.blogTitle = "留言板"
         this.$store.state.blogDescription = "可以在这里留言加友链哦(*^▽^*)"

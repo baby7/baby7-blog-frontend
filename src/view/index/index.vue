@@ -17,6 +17,7 @@ import Pagination from "@/components/pagination/pagination"
 import {getBlogPage} from "@/api/blog"
 import { addFootprint } from "@/api/footprint";
 import { getSystem,getBrowser,getSE } from "@/util/message";
+import {judgeSpider} from "@/util/seo";
 
 export default {
     name: "index",
@@ -39,7 +40,8 @@ export default {
                     createTime: '',
                     id: '',
                 }
-            ]
+            ],
+            spider: true
         }
     },
     methods: {
@@ -50,7 +52,7 @@ export default {
                 this.query.total = res.data.total;
                 // window.scrollTo(0, 0); // 将页面滚动到顶部
             })
-            if(this.$route.query.seo == null) {
+            if(!this.spider) {
                 // 添加足迹
                 let se = getSE()
                 let from = null
@@ -75,6 +77,7 @@ export default {
         }
     },
     mounted() {
+        this.spider = judgeSpider()
         // if (this.$store.state.blogTitleChange === true) {
         //     this.getData()
         // }

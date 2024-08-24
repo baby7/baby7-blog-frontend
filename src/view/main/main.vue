@@ -37,7 +37,7 @@
             :message="showToastMsg"
             :level="showToastLevel"/>
         <!-- 背景 -->
-        <div v-if="$route.query.seo == null">
+        <div v-if="!spider">
             <!-- 粒子连线特效 -->
             <BackgroundParticles v-if="settingData.plugins.particles.state"/>
             <!-- 粒子穿越特效 -->
@@ -49,11 +49,11 @@
         </div>
         <!-- 看板娘 -->
         <Live2dw
-            v-if="settingData.plugins.live2dw.state && openLive2dw && $route.query.seo == null"
+            v-if="!spider && settingData.plugins.live2dw.state && openLive2dw"
             :data="settingData.plugins.live2dw"/>
         <!-- 上吊猫 -->
         <BackToTop
-            v-if="settingData.plugins.backToTop.state && $route.query.seo == null"
+            v-if="!spider && settingData.plugins.backToTop.state"
             :url="settingData.plugins.backToTop.cdnPath"/>
     </div>
 </template>
@@ -65,6 +65,7 @@
     import Header               from "@/view/main/components/blogger-and-user/header/header"
     import Banner               from "@/view/main/components/banner/banner";
     import { getSetting }       from '@/api/setting'
+    import { judgeSpider }      from "@/util/seo"
     import Toast                from "@/components/comment/toast/toast";
     import BackgroundParticles  from "@/components/background-particles/background-particles";
     import BackgroundStarfield  from "@/components/background-starfield/background-starfield";
@@ -175,7 +176,8 @@
                 showToastMsg: "",
                 showToastLevel: "success",
                 showTitleMsg: false,
-                openLive2dw: false
+                openLive2dw: false,
+                spider: true
             }
         },
         methods:{
@@ -216,7 +218,7 @@
             },
             //自动收录
             autoPush() {
-                if(this.$route.query.seo == null) {
+                if(!this.spider) {
                   // 百度自动收录
                   if(this.settingData.push.baidu.state){
                     let bp = document.createElement('script');
@@ -250,6 +252,7 @@
             }
         },
         mounted() {
+            this.spider = judgeSpider()
             this.getData()
         },
         computed: {

@@ -214,7 +214,7 @@ export default {
             line-height: 1.42857143;
             text-decoration: none;
             box-shadow: 0 1px 6px 0 rgba(0, 0, 0, 0.9);
-            background-color: $p-background-color;
+            background-color: rgba(148, 154, 173, 0.1215686275);
             margin-left: 4px;
             cursor: pointer;
             color: $p-background-color-difference;
@@ -231,7 +231,7 @@ export default {
 
             &.paging-item--disabled,
             &.paging-item--more {
-                background-color: $p-background-color;
+                //background-color: $p-background-color;
                 color: #505050;
             }
 

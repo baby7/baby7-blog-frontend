@@ -21,6 +21,7 @@ import Comment from "@/components/comment/comment"
 import { getBlog,look } from "@/api/blog";
 import { addFootprint } from "@/api/footprint";
 import { getSystem,getBrowser,getSE } from "@/util/message";
+import {judgeSpider} from "@/util/seo";
 
 export default {
     name: "blog",
@@ -33,7 +34,8 @@ export default {
     data() {
         return {
             blogContent: {},
-            markdownTheme: "black-dark"
+            markdownTheme: "black-dark",
+            spider: true
         }
     },
     methods: {
@@ -47,7 +49,7 @@ export default {
                 this.$store.state.blogTitleShow = true
                 document.title = this.$store.state.blogTitle + " - " + this.$store.state.title
             })
-            if(this.$route.query.seo == null) {
+            if(!this.spider) {
                 // 添加浏览记录
                 look({id:this.$route.query.id}).then()
                 // 添加足迹
@@ -95,6 +97,7 @@ export default {
         }
     },
     mounted() {
+        this.spider = judgeSpider()
         this.getData()
     },
     computed: {

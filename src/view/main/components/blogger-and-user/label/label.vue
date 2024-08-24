@@ -70,4 +70,8 @@
         text-decoration: none;
     }
 }
+
+.title-line-right {
+    margin-bottom: 5px;
+}
 </style>

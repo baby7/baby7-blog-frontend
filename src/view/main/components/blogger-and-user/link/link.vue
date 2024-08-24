@@ -82,4 +82,8 @@ export default {
     float: left;
     max-width: 16px;
 }
+
+.title-line-right {
+    margin-bottom: 5px;
+}
 </style>

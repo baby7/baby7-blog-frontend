@@ -9,6 +9,7 @@ import MarkdownPreview from '@/components/markdown/preview';
 import { getBlogger } from "@/api/setting";
 import { addFootprint } from "@/api/footprint";
 import { getSystem,getBrowser,getSE } from "@/util/message";
+import {judgeSpider} from "@/util/seo";
 
 export default {
     name: "blogger",
@@ -19,7 +20,8 @@ export default {
     data() {
         return {
             blogger: {},
-            markdownTheme: "black-dark"
+            markdownTheme: "black-dark",
+            spider: true
         }
     },
     methods: {
@@ -28,7 +30,7 @@ export default {
             getBlogger().then(res => {
                 this.blogger = res.data;
             })
-            if(this.$route.query.seo == null) {
+            if(!this.spider) {
                 // 添加足迹
                 let se = getSE()
                 let from = null
@@ -57,6 +59,7 @@ export default {
         }
     },
     mounted() {
+        this.spider = judgeSpider()
         this.getData()
         this.$store.state.blogTitle = "博主信息"
         this.$store.state.blogDescription = ""

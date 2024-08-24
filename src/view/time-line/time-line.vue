@@ -9,6 +9,7 @@ import TimeLine from "@/components/time-line/time-line"
 import {getBlogPage} from "@/api/blog";
 import { addFootprint } from "@/api/footprint";
 import { getSystem,getBrowser,getSE } from "@/util/message";
+import {judgeSpider} from "@/util/seo";
 
 export default {
     name: "time-line",
@@ -21,7 +22,8 @@ export default {
                 current: 1,
                 size: 999
             },
-            timeLine: []
+            timeLine: [],
+            spider: true
         }
     },
     methods: {
@@ -30,7 +32,7 @@ export default {
             getBlogPage(this.query).then(res => {
                 this.timeLine = res.data.records;
             })
-            if(this.$route.query.seo == null) {
+            if(!this.spider) {
                 // 添加足迹
                 let se = getSE()
                 let from = null
@@ -50,6 +52,7 @@ export default {
         }
     },
     mounted() {
+        this.spider = judgeSpider()
         this.getData()
         this.$store.state.blogTitle = "时间线"
         this.$store.state.blogDescription = ""

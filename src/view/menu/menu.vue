@@ -29,6 +29,7 @@ import {getMenuList} from '@/api/menu'
 import {getBlogPage} from "@/api/blog";
 import { addFootprint } from "@/api/footprint";
 import { getSystem,getBrowser,getSE } from "@/util/message";
+import {judgeSpider} from "@/util/seo";
 
 export default {
     name: "menu",
@@ -55,7 +56,8 @@ export default {
                     createTime: '',
                     id: '',
                 }
-            ]
+            ],
+            spider: true
         }
     },
     methods: {
@@ -70,7 +72,7 @@ export default {
                 this.blogList = res.data.records;
                 this.blogQuery.total = res.data.total;
             })
-            if(this.$route.query.seo == null) {
+            if(!this.spider) {
                 // 添加足迹
                 let se = getSE()
                 let from = null
@@ -105,6 +107,7 @@ export default {
         }
     },
     mounted() {
+        this.spider = judgeSpider()
         this.getData()
     },
     watch:{
