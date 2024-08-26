@@ -15,7 +15,6 @@
         <div>
             <span class="link-item" v-for="link in linkList">
                 <img :src="link.logo" class="link-img" alt="link.name">
-                &nbsp;
                 <a :href="link.url" target="_blank">{{link.title}}</a>
             </span>
         </div>
@@ -39,11 +38,11 @@ export default {
 @include themeify {
     .link-item {
         vertical-align: middle;
-        margin: 4px 4px 10px;
+        margin: 4px 4px 4px;
         padding: 4px 8px;
         display: inline-block;
         cursor: pointer;
-        border-radius: .25rem;
+        border-radius: 0.25rem;
         line-height: 13px;
     }
 
