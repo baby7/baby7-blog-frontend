@@ -34,14 +34,14 @@ export default {
       p4Src: imgUrl + 'banner/pp4.png',
       p6Src: imgUrl + 'banner/pp6.png',
       p7Src: imgUrl + 'banner/bottom.png',
-      p0Top: 0,
+      p0Top: -100,
       p1Top: 0,
       p2Top: 0,
       p3Top: 0,
       p4Top: 0,
       p6Top: 0,
       p7Top: 0,
-      bannerTitleMarginTop: -100,
+      bannerTitleMarginTop: -230,
       requestId: undefined, // 用于跟踪 requestAnimationFrame 的标识
     };
   },
@@ -71,13 +71,13 @@ export default {
     },
     handleScroll() {
       const value = window.scrollY;
-      this.p0Top = value * 0.6;
+      this.p0Top = value * 0.6 - 100;
       this.p1Top = value * 0.36;
       this.p2Top = value * 0.24;
       this.p3Top = value * 0.16;
       this.p4Top = value * 0.12;
       this.p6Top = 0;
-      this.bannerTitleMarginTop = value * 1.1 - 100;
+      this.bannerTitleMarginTop = value * 1.1 - 230;
       // 使用 requestAnimationFrame 更新样式
       if (this.requestId === undefined) {
         this.requestId = requestAnimationFrame(this.updateStyles);
