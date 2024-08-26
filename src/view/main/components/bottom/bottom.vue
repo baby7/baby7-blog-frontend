@@ -23,6 +23,13 @@
                 博客总篇数：{{blogCount}}
             </span>
         </div>
+        <div>
+            <span class="footer-item">
+                <a href='/feed' target="_blank">
+                    RSS订阅
+                </a>
+            </span>
+        </div>
     </footer>
 </template>
 
