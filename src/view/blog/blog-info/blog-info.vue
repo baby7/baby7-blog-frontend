@@ -9,7 +9,7 @@
                 标签：
                 <span v-for="label in blogContent.labelList" style="margin-right: 10px">
                     <router-link
-                        :to="'/label?id=' + label.id"
+                        :to="'/label/' + label.id + '.html'"
                         class="label"
                     style="text-decoration: none;">
                         <span style="color: #3F86E8">{{ label.label }}</span>
@@ -23,7 +23,7 @@
                 <p style="margin-top: 2rem">上一篇</p>
                 <p>
                     <template v-if="blogContent.prev">
-                        <router-link class="blog-link" :to="'/myBlog?id=' + blogContent.prev.id">
+                        <router-link class="blog-link" :to="'/myBlog/' + blogContent.prev.id + '.html'">
                             {{blogContent.prev.title}}
                         </router-link>
                     </template>
@@ -36,7 +36,7 @@
                 <p style="margin-top: 2rem">下一篇</p>
                 <p>
                     <template v-if="blogContent.next">
-                        <router-link class="blog-link" :to="'/myBlog?id=' + blogContent.next.id">
+                        <router-link class="blog-link" :to="'/myBlog/' + blogContent.next.id + '.html'">
                             {{blogContent.next.title}}
                         </router-link>
                     </template>

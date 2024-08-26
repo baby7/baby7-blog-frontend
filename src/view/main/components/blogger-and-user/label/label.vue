@@ -5,7 +5,7 @@
         <!-- 分隔 -->
         <hr class="title-line-right">
         <template>
-            <router-link class="label-link" to="/label">
+            <router-link class="label-link" to="/label.html">
               <span class="label-item" style="background-color:#E355CD">
                 全部
               </span>
@@ -13,7 +13,7 @@
         </template>
         <template
             v-for="(label,index) in labelList">
-            <router-link class="label-link" :to="'/label?id='+label.id">
+            <router-link class="label-link" :to="'/label/'+label.id + '.html'">
               <span
                   class="label-item"
                   :style="'background-color:'+getColor(index)">

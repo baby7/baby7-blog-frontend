@@ -4,7 +4,7 @@
         <input type="text" placeholder="搜索" v-model="searchVal" class="search-input" @blur="LoseFocus">
         <ul class="search-list" v-if="NewItems.length > 0">
             <li v-for="(item,index) in NewItems" :key="index" :value="item.id" class="search-item">
-                <router-link class="search-link" :to="'/myBlog?id=' + item.id" :title="item.title">
+                <router-link class="search-link" :to="'/myBlog/' + item.id + '.html'" :title="item.title">
                     {{ item.title }}
                 </router-link>
             </li>

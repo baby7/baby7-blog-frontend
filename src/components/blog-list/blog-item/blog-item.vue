@@ -12,7 +12,7 @@
                     <main class="el-main el-menu-item-blog">
                         <!-- 标题 -->
                         <h2 class="blog_item_title">
-                            <router-link :to="'/myBlog?id=' + blog.id" :title="blog.title">
+                            <router-link :to="'/myBlog/' + blog.id + '.html'" :title="blog.title">
                                 {{ blog.title }}
                             </router-link>
                         </h2>
@@ -48,12 +48,7 @@ export default {
         return {
             defaultBlogImg: this.$store.state.defaultBlogImg
         }
-    },
-    methods: {
-        readBlog(blog) {
-            this.$router.push({path: '/myBlog', query: {id: blog.id}});
-        },
-    },
+    }
 }
 </script>
 

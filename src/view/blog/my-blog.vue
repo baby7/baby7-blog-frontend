@@ -41,7 +41,11 @@ export default {
     methods: {
         getData(){
             this.ChangeMarkdownTheme()
-            getBlog(this.$route.query.id).then(res => {
+            let blogId = this.$route.params.blogId;
+            if (blogId == null) {
+                blogId = this.$route.query.id
+            }
+            getBlog(blogId).then(res => {
                 this.blogContent = res.data;
                 this.blogContent.content = this.getContent(this.blogContent.content)
                 this.$store.state.blogTitle = this.blogContent.title
@@ -51,7 +55,7 @@ export default {
             })
             if(!this.spider) {
                 // 添加浏览记录
-                look({id:this.$route.query.id}).then()
+                look({id:blogId}).then()
                 // 添加足迹
                 let se = getSE()
                 let from = null
@@ -64,7 +68,7 @@ export default {
                     "searchEngine": from,
                     "keyword": keyword,
                     "url": location.href,
-                    "blogId": this.$route.query.id,
+                    "blogId": blogId,
                     "type": "博客"
                 }
                 getSystem(addFootprint, message, new Browser())

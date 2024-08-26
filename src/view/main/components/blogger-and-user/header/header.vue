@@ -3,10 +3,10 @@
         <div class="header-info">
             <img :src="avatar" class="header-img" style="height: 35px">
             <span class="header-title">
-<!--                <router-link to="/index">-->
+<!--                <router-link to="/index.html">-->
 <!--                    {{ title }}-->
 <!--                </router-link>-->
-              <a href="/index">
+              <a href="/index.html">
                 {{ title }}
               </a>
             </span>
@@ -43,7 +43,7 @@ export default {
             configNav: [
                 {
                     name: "首页",
-                    path: '/index',
+                    path: '/index.html',
                 },
                 {
                     name: " 分类",
@@ -55,15 +55,15 @@ export default {
                 },
                 {
                     name: "时间线",
-                    path: '/timeline',
+                    path: '/timeline.html',
                 },
                 {
                     name: "留言",
-                    path: '/comment',
+                    path: '/comment.html',
                 },
                 {
                     name: "博主",
-                    path: '/myself',
+                    path: '/myself.html',
                 },
                 // {
                 //     name: "开源地址",
@@ -85,7 +85,7 @@ export default {
                 let subItems = []
                 for (let i = 0; i < res.data.records.length; i++) {
                     subItems.push({
-                        link: "/menu?id=" + res.data.records[i].id,
+                        link: "/menu/" + res.data.records[i].id + ".html",
                         text: res.data.records[i].name
                     })
                 }

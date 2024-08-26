@@ -1,7 +1,7 @@
 <template>
     <div>
         <template>
-          <router-link class="label-link" to="/label">
+          <router-link class="label-link" to="/label.html">
                 <span class="label-item" style="background-color:#E355CD">
                   全部
                 </span>
@@ -9,7 +9,7 @@
         </template>
         <template
             v-for="(label,index) in labelList">
-          <router-link class="label-link" :to="'/label?id='+label.id">
+          <router-link class="label-link" :to="'/label/'+label.id + '.html'">
                 <span
                     class="label-item"
                     :style="'background-color:'+getColor(index)">
@@ -79,7 +79,10 @@ export default {
                 this.labelList = res.data.records
                 this.changeTitle()
             })
-            this.blogQuery.labelId = this.$route.query.id
+            this.blogQuery.labelId = this.$route.params.labelId;
+            if (this.blogQuery.labelId == null) {
+                this.blogQuery.labelId = this.$route.query.id;
+            }
             getBlogPage(this.blogQuery).then(res => {
                 this.blogList = res.data.records;
                 this.blogQuery.total = res.data.total;
@@ -134,7 +137,10 @@ export default {
     },
     watch:{
         $route(to,from){
-            this.blogQuery.labelId = this.$route.query.id
+            this.blogQuery.labelId = this.$route.params.labelId;
+            if (this.blogQuery.labelId == null) {
+                this.blogQuery.labelId = this.$route.query.id;
+            }
             getBlogPage(this.blogQuery).then(res => {
                 console.log(res.data)
                 this.blogList = res.data.records;

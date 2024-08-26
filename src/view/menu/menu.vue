@@ -4,10 +4,10 @@
             <li
                 v-for="(menu,index) in menuList"
                 class="menu-item">
-                <router-link v-if="String(menu.id) === $route.query.id" style="color: #3F86E8" :to="'/menu?id='+menu.id">
+                <router-link v-if="String(menu.id) === $route.query.id" style="color: #3F86E8" :to="'/menu/'+menu.id+'.html'">
                     {{ menu.name }}
                 </router-link>
-                <router-link v-if="String(menu.id) !== $route.query.id" :to="'/menu?id='+menu.id">
+                <router-link v-if="String(menu.id) !== $route.query.id" :to="'/menu/'+menu.id+'html'">
                     {{ menu.name }}
                 </router-link>
             </li>
@@ -63,7 +63,10 @@ export default {
     methods: {
         // 获取数据
         getData() {
-            this.blogQuery.menuId = this.$route.query.id
+            this.blogQuery.menuId = this.$route.params.menuId;
+            if (this.blogQuery.menuId == null) {
+                this.blogQuery.menuId = this.$route.query.id;
+            }
             getMenuList(this.menuQuery).then(res => {
                 this.menuList = res.data.records
                 this.changeTitle()
@@ -112,7 +115,10 @@ export default {
     },
     watch:{
         $route(to,from){
-            this.blogQuery.menuId = this.$route.query.id
+            this.blogQuery.menuId = this.$route.params.menuId;
+            if (this.blogQuery.menuId == null) {
+                this.blogQuery.menuId = this.$route.query.id;
+            }
             getBlogPage(this.blogQuery).then(res => {
                 this.blogList = res.data.records;
                 this.blogQuery.total = res.data.total;

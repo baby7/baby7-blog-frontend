@@ -5,7 +5,7 @@
                 <img :src="bloggerData.avatar" style="object-fit: cover;" alt="avatar">
             </span>
             <div class="blogger-text">
-                <router-link to="/myself" class="blogger-text-title">{{ bloggerData.nickname }}</router-link><br>
+                <router-link to="/myself.html" class="blogger-text-title">{{ bloggerData.nickname }}</router-link><br>
                 <span>{{ bloggerData.describe }}</span>
             </div>
         </div>
