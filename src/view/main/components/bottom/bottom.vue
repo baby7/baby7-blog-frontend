@@ -1,24 +1,42 @@
 <template>
     <footer class="footer-content">
-        <span>
-            <a href="https://www.baby7blog.com" target="blank" rel="nofollow">
-                Power by baby7-blog
-            </a>
-        </span>
-        <span class="footer-item">
-            Copyright©{{ getCopyrightDate() }}
-        </span>
-        <span class="footer-item">
-            <a :href="recordUrl" target="blank" rel="nofollow">
-                {{recordNumber}}
-            </a>
-        </span>
+        <div>
+            <span>
+                <a href="https://www.baby7blog.com" target="blank" rel="nofollow">
+                    Power by baby7-blog
+                </a>
+            </span>
+                <span class="footer-item">
+                Copyright©{{ getCopyrightDate() }}
+            </span>
+                <span class="footer-item">
+                <a :href="recordUrl" target="blank" rel="nofollow">
+                    {{recordNumber}}
+                </a>
+            </span>
+        </div>
+        <div>
+            <span class="footer-item">
+                博客总浏览量：{{lookCount}}
+            </span>
+            <span class="footer-item">
+                博客总篇数：{{blogCount}}
+            </span>
+        </div>
     </footer>
 </template>
 
 <script>
+import { getLookCount } from '@/api/setting'
+
 export default {
     name: "Bottom",
+    data() {
+        return {
+            lookCount: 0,
+            blogCount: 0,
+        };
+    },
     props:{
         recordUrl:{
             type: String,
@@ -42,7 +60,16 @@ export default {
                 return  this.createTime.substring(0, 4) + " - " + new Date().getFullYear()
             }
             return new Date().getFullYear() + ""
+        },
+        getData() {
+            getLookCount().then(res => {
+                this.lookCount = res.data.lookCount
+                this.blogCount = res.data.blogCount
+            })
         }
+    },
+    mounted() {
+        this.getData()
     }
 }
 </script>
@@ -52,13 +79,17 @@ export default {
     .footer-content {
         color: $p-color-text;
         border-top: 2px solid $p-color-border;
-        padding: 1rem;
+        padding: 0.8rem;
         text-align: center;
         font-size: 14px;
-        span {
-            a {
-                color: $p-color-text;
-                text-decoration:none;
+        div {
+            margin-top: 2px;
+            margin-bottom: 2px;
+            span {
+                a {
+                    color: $p-color-text;
+                    text-decoration:none;
+                }
             }
         }
     }

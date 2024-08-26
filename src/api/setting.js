@@ -13,3 +13,10 @@ export function getBlogger() {
     method: 'get'
   })
 }
+
+export function getLookCount() {
+  return request({
+    url: '/setting/info/getMetric',
+    method: 'get'
+  })
+}
