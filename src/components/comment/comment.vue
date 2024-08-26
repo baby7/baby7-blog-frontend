@@ -209,6 +209,7 @@ export default {
 </script>
 
 <style lang="scss">
+$b-font-family: Ubuntu, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
 @include themeify {
     .comment-wrap {
         border: 1px solid transparent;
@@ -229,7 +230,7 @@ export default {
         outline: none;
         padding: 10px 5px;
         max-width: 100%;
-        font-size: .775em;
+        //font-size: .775em;
         background: transparent;
         width: 32%;
         //border-bottom: 1px dashed #555;
@@ -238,24 +239,26 @@ export default {
     .comment-edit {
         position: relative;
         padding-top: 10px;
-        border-top: 1px dashed #555
+        border-top: 1px dashed #555;
+        font-family: $b-font-family;
     }
     .comment-edit > .comment-editor {
         width: 99%;
         min-height: 8.75em;
-        font-size: .875em;
+        //font-size: .875em;
         background: transparent;
         resize: vertical;
         transition: all .25s ease;
         border-bottom: 0;
+        font-family: $b-font-family;
     }
     .comment-control {
-        font-size: 0;
+        //font-size: 0;
         padding-top: 15px;
     }
     .col {
         display: inline-block;
-        font-size: 16px;
+        //font-size: 16px;
         vertical-align: middle;
         color: #ccc;
     }
@@ -277,13 +280,13 @@ export default {
         display: inline-block;
         background: $p-background-color-difference;
         margin-bottom: 0;
-        font-weight: 400;
+        //font-weight: 400;
         vertical-align: middle;
         touch-action: manipulation;
         cursor: pointer;
         white-space: nowrap;
         padding: .5em 1.25em;
-        font-size: .875em;
+        //font-size: .875em;
         line-height: 1.42857143;
         -webkit-user-select: none;
         user-select: none;
@@ -331,8 +334,8 @@ export default {
 
     .comment-nick {
         position: relative;
-        font-size: .875em;
-        font-weight: 500;
+        //font-size: .875em;
+        //font-weight: 500;
         margin-right: .875em;
         cursor: pointer;
         color: $p-color-title;
@@ -349,7 +352,7 @@ export default {
         padding: .2em .5em;
         background: #ededed;
         color: #b3b1b1;
-        font-size: .75em;
+        //font-size: .75em;
         border-radius: .2em;
         margin-right: .3em;
     }
@@ -361,12 +364,12 @@ export default {
 
     .comment-time {
         color: #b3b3b3;
-        font-size: .75em;
+        //font-size: .75em;
         margin-right: .875em;
     }
 
     .comment-at {
-        font-size: .8125em;
+        //font-size: .8125em;
         color: #ef2f11;
         cursor: pointer;
         float: right;
@@ -376,7 +379,7 @@ export default {
         word-break: break-all;
         text-align: justify;
         color: #888;
-        font-size: .875em;
+        //font-size: .875em;
         line-height: 2;
         position: relative;
         margin-bottom: .75em;
