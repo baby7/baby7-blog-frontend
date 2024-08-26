@@ -65,6 +65,7 @@ export default {
         margin-top: 5px;
         font-size: 15px;
         width: 55%;
+        color: $p-background-color-difference;
     }
     .blogger-text-title {
         font-size: 20px;

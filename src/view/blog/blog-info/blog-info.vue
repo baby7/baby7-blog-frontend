@@ -4,6 +4,7 @@
         <div class="blog-infos">
             <p>发布时间：{{ blogContent.createTime.replace("-", "年").replace("-", "月").replace(" ", "日 - ") }}</p>
             <p>最后更新：{{ blogContent.updateTime.replace("-", "年").replace("-", "月").replace(" ", "日 - ") }}</p>
+            <p>浏览量：{{ blogContent.lookNum }}</p>
             <p>
                 标签：
                 <span v-for="label in blogContent.labelList" style="margin-right: 10px">
@@ -73,6 +74,7 @@
     }
     .blog-infos {
         padding-bottom: 10px;
+        color: $p-background-color-difference;
     }
     .blog-prev {
         height: 100%;
@@ -80,12 +82,14 @@
         position: relative;
         width: 49%;
         border-right: 1px dashed #555;
+        color: $p-background-color-difference;
     }
     .blog-next {
         float: right;
         position: relative;
         width: 49%;
         text-align: right;
+        color: $p-background-color-difference;
     }
     .blog-link {
         color: $p-color-title;

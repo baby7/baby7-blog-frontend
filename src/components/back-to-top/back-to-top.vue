@@ -188,4 +188,11 @@ export default {
   opacity: 1;
 }
 
+
+@media all and (orientation : portrait) {
+    .back-to-top {
+        display: none;
+    }
+}
+
 </style>

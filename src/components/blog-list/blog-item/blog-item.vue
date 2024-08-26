@@ -21,8 +21,12 @@
                             <span>{{ blog.introduce }}</span>
                         </div>
                         <!-- 创建时间 -->
-                        <span class="blog-msg"><i class="el-icon-time"></i>
-                            {{ blog.createTime.substring(0, 10) }}
+                        <span class="blog-msg-time"><i class="el-icon-time"></i>
+                            创建时间：{{ blog.createTime.substring(0, 10) }}
+                        </span>
+                        <!-- 创建时间 -->
+                        <span class="blog-msg-look"><i class="el-icon-time"></i>
+                            浏览量：{{ blog.lookNum }}
                         </span>
                     </main>
                 </section>
@@ -89,13 +93,21 @@ export default {
     /*介绍*/
     .blog_item_introduce {
         margin-top: 1%;
-        margin-bottom: 5%;
+        margin-bottom: 10%;
         color: $p-background-color-difference;
     }
 
-    /*博客信息块*/
-    .blog-msg {
+    /*博客信息块-时间*/
+    .blog-msg-time {
         position: absolute;
+        bottom: 10%;
+        color: $p-background-color-difference;
+    }
+
+    /*博客信息块-浏览量*/
+    .blog-msg-look {
+        position: absolute;
+        right: 5%;
         bottom: 10%;
         color: $p-background-color-difference;
     }
@@ -138,12 +150,12 @@ export default {
         min-width: 0;
     }
     @media all and (orientation : portrait) {
-      .phone-adapt {
-        display: none;
-      }
-      .blog-msg {
-        display: none;
-      }
+        .blog-msg-time {
+            display: none;
+        }
+        .blog-msg-look {
+            display: none;
+        }
     }
 }
 </style>

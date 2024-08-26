@@ -36,5 +36,10 @@ export default {
 </script>
 
 <style scoped>
-
+@media all and (orientation : portrait) {
+    .content-real {
+        margin-left: 10px;
+        margin-right: 10px;
+    }
+}
 </style>

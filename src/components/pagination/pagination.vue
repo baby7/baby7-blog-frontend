@@ -193,6 +193,7 @@ export default {
 </script>
 
 <style lang="scss">
+
 @include themeify {
     .pagination-box {
         text-align: center;
@@ -253,6 +254,18 @@ export default {
                 position: relative;
                 z-index: 1;
                 border-color: #0275d8;
+            }
+        }
+    }
+    @media all and (orientation : portrait) {
+        .pagination {
+            > .paging-item {
+                &.paging-item--first {
+                    display: none;
+                }
+                &.paging-item--last {
+                    display: none;
+                }
             }
         }
     }
