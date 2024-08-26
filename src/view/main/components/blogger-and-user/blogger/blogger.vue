@@ -5,7 +5,7 @@
                 <img :src="bloggerData.avatar" style="object-fit: cover;" alt="avatar">
             </span>
             <div class="blogger-text">
-                <span class="blogger-text-title">{{ bloggerData.nickname }}</span><br>
+                <a href="/myself" class="blogger-text-title">{{ bloggerData.nickname }}</a><br>
                 <span>{{ bloggerData.describe }}</span>
             </div>
         </div>
@@ -68,6 +68,11 @@ export default {
     }
     .blogger-text-title {
         font-size: 20px;
+        color: $p-color-text;
+        text-decoration: none;
+    }
+    .blogger-text-title:hover {
+        border-bottom: 1px solid $p-color-text;
     }
 }
 </style>
