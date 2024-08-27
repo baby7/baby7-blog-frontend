@@ -1,12 +1,12 @@
 <template>
   <section>
-    <img :src="p0Src" id="p0" :style="{ transform: `translateY(${p0Top}px)`, zIndex: `100` }" alt="p0">
-    <img :src="p1Src" id="p1" :style="{ transform: `translateY(${p1Top}px)`, zIndex: `200` }" alt="p1">
-    <img :src="p2Src" id="p2" :style="{ transform: `translateY(${p2Top}px)`, zIndex: `300` }" alt="p2">
-    <img :src="p3Src" id="p3" :style="{ transform: `translateY(${p3Top}px)`, zIndex: `400` }" alt="p3">
-    <img :src="p4Src" id="p4" :style="{ transform: `translateY(${p4Top}px)`, zIndex: `500` }" alt="p4">
-    <img :src="p6Src" id="p6" :style="{ transform: `translateY(${p6Top}px)`, zIndex: `600` }" alt="p6">
-    <a href="javascript:void(0);"
+    <img v-if="!spider" :src="p0Src" id="p0" :style="{ transform: `translateY(${p0Top}px)`, zIndex: `100` }" alt="p0">
+    <img v-if="!spider" :src="p1Src" id="p1" :style="{ transform: `translateY(${p1Top}px)`, zIndex: `200` }" alt="p1">
+    <img v-if="!spider" :src="p2Src" id="p2" :style="{ transform: `translateY(${p2Top}px)`, zIndex: `300` }" alt="p2">
+    <img v-if="!spider" :src="p3Src" id="p3" :style="{ transform: `translateY(${p3Top}px)`, zIndex: `400` }" alt="p3">
+    <img v-if="!spider" :src="p4Src" id="p4" :style="{ transform: `translateY(${p4Top}px)`, zIndex: `500` }" alt="p4">
+    <img v-if="!spider" :src="p6Src" id="p6" :style="{ transform: `translateY(${p6Top}px)`, zIndex: `600` }" alt="p6">
+    <a v-if="!spider" href="javascript:void(0);"
        @click="goContent"
        :style="{ transform: `translateY(${p6Top}px)`, zIndex: `700`}">
       <img :src="p7Src" id="p7" alt="p7">
@@ -21,6 +21,8 @@
 </template>
 
 <script>
+import {judgeSpider} from "@/util/seo";
+
 const imgUrl = "https://media.baby7blog.com/blog/img/";
 // const imgUrl = "/static/";
 export default {
@@ -42,7 +44,8 @@ export default {
       p6Top: 0,
       p7Top: 0,
       bannerTitleMarginTop: -230,
-      requestId: undefined, // 用于跟踪 requestAnimationFrame 的标识
+      requestId: undefined, // 用于跟踪 requestAnimationFrame 的标识,
+      spider: true
     };
   },
   props:{
@@ -56,6 +59,7 @@ export default {
     },
   },
   mounted() {
+    this.spider = judgeSpider()
     this.addScrollListener();
   },
   beforeDestroy() {

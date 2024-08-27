@@ -1,5 +1,5 @@
 <template>
-    <div class="content-real">
+    <div v-if="!spider" class="content-real">
         <!-- 标题 -->
         <span class="right-label-title">&nbsp;◈&nbsp;社交</span>
         <!-- 分隔 -->
@@ -23,13 +23,23 @@
 </template>
 
 <script>
+import {judgeSpider} from "@/util/seo";
+
 export default {
     name: "SocialAccount",
+    data() {
+        return {
+            spider: true
+        };
+    },
     props: {
         socialAccounts: {
             type: Array,
             require: true
         }
+    },
+    mounted() {
+        this.spider = judgeSpider()
     },
 }
 </script>
