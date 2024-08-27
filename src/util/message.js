@@ -90,30 +90,31 @@ export function getBrowser() {
 
 // 获取搜索引擎和关键词
 export function getSE() {
-    var eg = [];
-    eg.push(['baidu', 'wd']);
-    eg.push(['google', 'q']);
-    eg.push(['soso', 'w']);
-    eg.push(['yodao', 'q']);
-    eg.push(['bing', 'q']);
-    eg.push(['yahoo', 'q']);
-    eg.push(['sogou', 'query']);
-    eg.push(['gougou', 'search']);
-    eg.push(['360', 'q']);
-    var dq = getDomainQuery(document.referrer);
-    var keyword=null;
-    var str=null;
-    for(var el in eg){
-        var s = eg[el];
-        var DandQ=String(s).split(","); //字符分割
-        if (dq[0].indexOf(DandQ[0])>0){
-            str = dq[1].match(DandQ[1]+'\\=.*\\&');
-            keyword = str.toString().split("=")[1].split("&")[0];
-            keyword = decodeURIComponent(keyword);
-            return [dq[0], keyword];
-        }
-    }
-    return document.referrer;
+    // var eg = [];
+    // eg.push(['baidu', 'wd']);
+    // eg.push(['google', 'q']);
+    // eg.push(['soso', 'w']);
+    // eg.push(['yodao', 'q']);
+    // eg.push(['bing', 'q']);
+    // eg.push(['yahoo', 'q']);
+    // eg.push(['sogou', 'query']);
+    // eg.push(['gougou', 'search']);
+    // eg.push(['360', 'q']);
+    // console.log(document.referrer)
+    // var dq = getDomainQuery(document.referrer);
+    // var keyword=null;
+    // var str=null;
+    // for(var el in eg){
+    //     var s = eg[el];
+    //     var DandQ=String(s).split(","); //字符分割
+    //     if (dq[0].indexOf(DandQ[0])>0){
+    //         str = dq[1].match(DandQ[1]+'\\=.*\\&');
+    //         keyword = str.toString().split("=")[1].split("&")[0];
+    //         keyword = decodeURIComponent(keyword);
+    //         return [dq[0], keyword];
+    //     }
+    // }
+    return [document.referrer, null];
 }
 
 export function getDomainQuery(url) {
