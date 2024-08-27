@@ -174,7 +174,7 @@ export default {
             this.goContent()
         },
         goContent() {
-            var comment = document.getElementById("app");
+            var comment = document.getElementById("comment-top");
             var commentTop = comment.offsetTop + window.innerHeight * 0.95;
             let stepNumber = 0;
             var timer = setInterval(function () {
