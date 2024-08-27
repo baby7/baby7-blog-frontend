@@ -14,7 +14,7 @@
         <!-- 链接表 -->
         <div>
             <span class="link-item" v-for="link in linkList">
-                <img :src="link.logo" class="link-img" alt="link.name">
+                <img v-if="!spider" :src="link.logo" class="link-img" alt="link.name">
                 <a :href="link.url" target="_blank">{{link.title}}</a>
             </span>
         </div>
@@ -23,13 +23,23 @@
 
 <script>
 
+import {judgeSpider} from "@/util/seo";
+
 export default {
     name: "Link",
+    data() {
+        return {
+            spider: true
+        };
+    },
     props: {
         linkList: {
             type: Array,
             require: true
         }
+    },
+    mounted() {
+        this.spider = judgeSpider()
     },
 }
 </script>
