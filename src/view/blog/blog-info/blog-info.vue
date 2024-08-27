@@ -2,8 +2,8 @@
     <div class="blog-main-info">
         <!-- 时间及标签 -->
         <div class="blog-infos">
-            <p>发布时间：{{ blogContent.createTime.replace("-", "年").replace("-", "月").replace(" ", "日 - ") }}</p>
-            <p>最后更新：{{ blogContent.updateTime.replace("-", "年").replace("-", "月").replace(" ", "日 - ") }}</p>
+            <p>发布时间：{{ formatTime(blogContent.createTime) }}</p>
+            <p>最后更新：{{ formatTime(blogContent.updateTime) }}</p>
             <p>浏览量：{{ blogContent.lookNum }}</p>
             <p>
                 标签：
@@ -62,6 +62,13 @@
             blogContent:{
                 type: Object,
                 require: true
+            }
+        },
+        methods: {
+            formatTime(timeString) {
+                if (!timeString) return '未知时间';
+                // 先替换空格，再替换连字符
+                return timeString.replace(" ", "日 - ").replace("-", "年").replace("-", "月");
             }
         }
     }

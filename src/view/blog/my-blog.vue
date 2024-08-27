@@ -9,7 +9,7 @@
         <div class="content-real">
             <BlogInfo :blog-content="blogContent"/>
         </div>
-        <Comment v-if="$route.query.id" :blog-id="$route.query.id" :markdown-theme="markdownTheme"/>
+        <Comment v-if="this.blogId" :blog-id="this.blogId" :markdown-theme="markdownTheme"/>
     </div>
 </template>
 
@@ -35,17 +35,14 @@ export default {
         return {
             blogContent: {},
             markdownTheme: "black-dark",
-            spider: true
+            spider: true,
+            blogId: this.getBlogId()
         }
     },
     methods: {
         getData(){
             this.ChangeMarkdownTheme()
-            let blogId = this.$route.params.blogId;
-            if (blogId == null) {
-                blogId = this.$route.query.id
-            }
-            getBlog(blogId).then(res => {
+            getBlog(this.blogId).then(res => {
                 this.blogContent = res.data;
                 this.blogContent.content = this.getContent(this.blogContent.content)
                 this.$store.state.blogTitle = this.blogContent.title
@@ -55,7 +52,7 @@ export default {
             })
             if(!this.spider) {
                 // 添加浏览记录
-                look({id:blogId}).then()
+                look({id:this.blogId}).then()
                 // 添加足迹
                 let se = getSE()
                 let from = null
@@ -68,7 +65,7 @@ export default {
                     "searchEngine": from,
                     "keyword": keyword,
                     "url": location.href,
-                    "blogId": blogId,
+                    "blogId": this.blogId,
                     "type": "博客"
                 }
                 getSystem(addFootprint, message, new Browser())
@@ -98,6 +95,13 @@ export default {
                 }
             })
             return changeContent
+        },
+        getBlogId() {
+            let blogId = this.$route.params.blogId;
+            if (blogId == null) {
+                blogId = this.$route.query.id
+            }
+            return blogId;
         }
     },
     mounted() {
