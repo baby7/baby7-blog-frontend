@@ -104,7 +104,7 @@ export default {
     .nav-a {
         cursor: pointer;
         float: left;
-        letter-spacing: 4px;
+        letter-spacing: 2px;
         position: relative;
     }
 
