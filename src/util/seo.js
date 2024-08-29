@@ -1,6 +1,6 @@
 export function judgeSpider() {
     const spiderUserAgentList= [
-        'Sogou web spider', 'BingPreview', 'baidu', 'Baiduspider', 'twitterbot', 'facebookexternalhit',
+        'HeadlessChrome', 'Sogou web spider', 'BingPreview', 'baidu', 'Baiduspider', 'twitterbot', 'facebookexternalhit',
         'rogerbot', 'linkedinbot', 'embedly', 'quora link preview', 'showyoubot', 'outbrain', 'pinterest',
         'slackbot', 'vkShare', 'W3C_Validator', 'bingbot', 'Sosospider', 'Sogou Pic Spider', 'Googlebot',
         '360Spider', 'qihoobot', 'Googlebot-Mobile', 'Googlebot-Image', 'Mediapartners-Google', 'Adsbot-Google',
