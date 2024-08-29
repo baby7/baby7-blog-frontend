@@ -65,28 +65,31 @@ export function getOtherSystem() {
 
 // 获取浏览器信息
 export function getBrowser() {
-    var agent = navigator.userAgent.toLowerCase() ;
-    var regStr_ie = /msie [\d.]+;/gi ;
-    var regStr_ff = /firefox\/[\d.]+/gi
-    var regStr_chrome = /chrome\/[\d.]+/gi ;
-    var regStr_saf = /safari\/[\d.]+/gi ;
-    //IE
-    if(agent.indexOf("msie") > 0) {
-        return ""+agent.match(regStr_ie);
+    const agent = navigator.userAgent.toLowerCase();
+
+    // 定义浏览器类型及其对应的正则表达式
+    const browsers = [
+        { name: 'IE', regex: /msie\s([\d.]+)/i },
+        { name: 'Firefox', regex: /firefox\/([\d.]+)/i },
+        { name: 'Safari', regex: /version\/([\d.]+).*(safari)/i },
+        { name: 'Edge', regex: /edg\/([\d.]+)/i },
+        { name: 'Chrome', regex: /chrome\/([\d.]+)/i }
+    ];
+
+    // 匹配浏览器类型
+    for (const browser of browsers) {
+        const match = agent.match(browser.regex);
+        if (match) {
+            return `${browser.name} ${match[1]}`;
+        }
     }
-    //firefox
-    if(agent.indexOf("firefox") > 0){
-        return ""+agent.match(regStr_ff) ;
-    }
-    //Chrome
-    if(agent.indexOf("chrome") > 0) {
-        return ""+agent.match(regStr_chrome);
-    }
-    //Safari
-    if(agent.indexOf("safari") > 0 && agent.indexOf("chrome") < 0) {
-        return ""+agent.match(regStr_saf);
-    }
+
+    // 其他浏览器
+    return "其他";
 }
+
+
+
 
 // 获取搜索引擎和关键词
 export function getSE() {
