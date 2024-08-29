@@ -196,6 +196,11 @@
                     }
                     this.$store.state.title = this.settingData.title
                     document.title = this.$store.state.blogTitle + " - " + this.$store.state.title
+                    let oldDescribe = document.querySelector('meta[name="description"]').getAttribute("content")
+                    if (oldDescribe == null || oldDescribe == "") {
+                        document.querySelector('meta[name="description"]').setAttribute("content", this.settingData.describe);
+                        document.querySelector('meta[name="keywords"]').setAttribute("content", this.settingData.keywords);
+                    }
                     if(this.$store.state.blogTitle == ""){
                       document.title = this.$store.state.title
                     }

@@ -48,8 +48,17 @@ export default {
                 this.$store.state.blogTitle = this.blogContent.title
                 this.$store.state.blogDescription = this.blogContent.introduce
                 this.$store.state.blogTitleShow = true
+                // 修改页面信息
                 document.title = this.$store.state.blogTitle + " - " + this.$store.state.title
+                document.querySelector('meta[name="description"]').setAttribute("content", this.blogContent.introduce);
+                if (this.blogContent.labelList != null && this.blogContent.labelList.length > 0) {
+                    let labelStr = this.blogContent.labelList.map(item => item.label).join(",")
+                    let labelList = labelStr.split(",")
+                    labelStr = labelList.filter((item, index) => labelList.indexOf(item) === index).join(",")
+                    document.querySelector('meta[name="keywords"]').setAttribute("content", labelStr);
+                }
             })
+            // 记录足迹
             if(!this.spider) {
                 // 添加浏览记录
                 look({id:this.blogId}).then()
