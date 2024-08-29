@@ -27,46 +27,46 @@ export function getSystem(callback, message, browserInfo) {
 export function getOtherSystem() {
     let sUserAgent = navigator.userAgent;
     let isWin = (navigator.platform === "Win32") || (navigator.platform === "Windows");
-    let isMac = (navigator.platform === "Mac68K") || (navigator.platform === "MacPPC") || (navigator.platform === "Macintosh") || (navigator.platform == "MacIntel");
+    let isMac = (navigator.platform === "Mac68K") || (navigator.platform === "MacPPC") || (navigator.platform === "Macintosh") || (navigator.platform === "MacIntel");
     if (isMac) return "Mac";
     let isUnix = (navigator.platform === "X11") && !isWin && !isMac;
     if (isUnix) return "Unix";
     let isLinux = (String(navigator.platform).indexOf("Linux") > -1);
-    let bIsAndroid = sUserAgent.toLowerCase().match(/android/i) === "android";
     if (isLinux) {
-        if(bIsAndroid) return "Android";
+        if (sUserAgent.includes("android")) return "Android";
         else return "Linux";
     }
     if (isWin) {
-        let isWin2K = sUserAgent.indexOf("Windows NT 5.0") > -1 || sUserAgent.indexOf("Windows 2000") > -1;
-        if (isWin2K) return "Windows 2000";
-        let isWinXP = sUserAgent.indexOf("Windows NT 5.1") > -1 || sUserAgent.indexOf("Windows XP") > -1
-        sUserAgent.indexOf("Windows XP") > -1;
-        if (isWinXP) return "Windows XP";
-        let isWin2003 = sUserAgent.indexOf("Windows NT 5.2") > -1 || sUserAgent.indexOf("Windows 2003") > -1;
-        if (isWin2003) return "Windows 2003";
-        let isWinVista= sUserAgent.indexOf("Windows NT 6.0") > -1 || sUserAgent.indexOf("Windows Vista") > -1;
-        if (isWinVista) return "Windows Vista";
-        let isWin7 = sUserAgent.indexOf("Windows NT 6.1") > -1 || sUserAgent.indexOf("Windows 7") > -1;
-        if (isWin7) return "Windows 7";
-        let isWin8 = sUserAgent.indexOf("windows nt6.2") > -1 || sUserAgent.indexOf("Windows 8") > -1;
-        if (isWin8) return "Windows 8";
-        let isWin10 = sUserAgent.indexOf("Windows NT 10.0") > -1 || sUserAgent.indexOf("Windows 10") > -1;
-        if (isWin10) return "Windows 10";
+        const winVersions = [
+            { version: "Windows 11", index: "Windows NT 10.0; Win64; x64" },
+            { version: "Windows 10", index: "Windows NT 10.0" },
+            { version: "Windows 8", index: "windows nt6.2" },
+            { version: "Windows 7", index: "Windows NT 6.1" },
+            { version: "Windows Vista", index: "Windows NT 6.0" },
+            { version: "Windows XP", index: "Windows NT 5.1" },
+            { version: "Windows 2003", index: "Windows NT 5.2" },
+            { version: "Windows 2000", index: "Windows NT 5.0" },
+        ];
+        for (const { version, index } of winVersions) {
+            if (sUserAgent.includes(index)) {
+                return version;
+            }
+        }
     }
-    if (sUserAgent.indexOf("android") > -1) return "Android"
-    if (sUserAgent.indexOf("iphone") > -1) return "iPhone"
-    if (sUserAgent.indexOf("ipad") > -1) return "iPad"
-    if (sUserAgent.indexOf("windows phone") > -1) return "Windows Phone"
-    if (sUserAgent.indexOf("symbianos") > -1) return "SymbianOS"
+    if (sUserAgent.includes("android")) return "Android";
+    if (sUserAgent.includes("iphone")) return "iPhone";
+    if (sUserAgent.includes("ipad")) return "iPad";
+    if (sUserAgent.includes("windows phone")) return "Windows Phone";
+    if (sUserAgent.includes("symbianos")) return "SymbianOS";
+
     // 判断不了的直接放user-agent
     return sUserAgent;
 }
 
+
 // 获取浏览器信息
 export function getBrowser() {
     const agent = navigator.userAgent.toLowerCase();
-
     // 定义浏览器类型及其对应的正则表达式
     const browsers = [
         { name: 'IE', regex: /msie\s([\d.]+)/i },
@@ -75,7 +75,6 @@ export function getBrowser() {
         { name: 'Edge', regex: /edg\/([\d.]+)/i },
         { name: 'Chrome', regex: /chrome\/([\d.]+)/i }
     ];
-
     // 匹配浏览器类型
     for (const browser of browsers) {
         const match = agent.match(browser.regex);
@@ -83,7 +82,6 @@ export function getBrowser() {
             return `${browser.name} ${match[1]}`;
         }
     }
-
     // 其他浏览器
     return "其他";
 }
