@@ -8,11 +8,11 @@
         <div>
             <template v-for="socialAccount in socialAccounts">
                 <div class="friend-link-item">
-                    <img class="friend-link-img" :src="socialAccount.icon" :alt="socialAccount.type+'图标'">
+                    <img class="friend-link-img" :src="socialAccount.icon + imgSuffix" :alt="socialAccount.type+'图标'">
                     <div class="popup-window-wrapper">
                         <div class="popup-window">
                             <div class="info">
-                                <img class="friend-link-qr" :src="socialAccount.qr" :alt="socialAccount.type+'二维码'">
+                                <img class="friend-link-qr" :src="socialAccount.qr + imgSuffix" :alt="socialAccount.type+'二维码'">
                             </div>
                         </div>
                     </div>
@@ -24,12 +24,14 @@
 
 <script>
 import {judgeSpider} from "@/util/seo";
+const imgSuffix = "-to75.webp";
 
 export default {
     name: "SocialAccount",
     data() {
         return {
-            spider: true
+            spider: true,
+            imgSuffix: imgSuffix,
         };
     },
     props: {

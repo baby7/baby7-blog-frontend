@@ -3,7 +3,7 @@
 	"name": "remu",
 	"model": "remu.moc",
 	"textures": [
-		"remu2048/texture_00.png"
+		"remu2048/texture_00.png-to75.webp"
 	],
 	"physics": "remu.physics.json",
 	"pose": "remu.pose.json",

@@ -24,18 +24,19 @@
 import {judgeSpider} from "@/util/seo";
 
 const imgUrl = "https://media.baby7blog.com/blog/img/";
+const imgSuffix = "-to75.webp";
 // const imgUrl = "/static/";
 export default {
   name: "Banner",
   data() {
     return {
-      p0Src: imgUrl + 'banner/ppp0.png',
-      p1Src: imgUrl + 'banner/pp1.png',
-      p2Src: imgUrl + 'banner/pp2.png',
-      p3Src: imgUrl + 'banner/pp3.png',
-      p4Src: imgUrl + 'banner/pp4.png',
-      p6Src: imgUrl + 'banner/pp6.png',
-      p7Src: imgUrl + 'banner/bottom.png',
+      p0Src: imgUrl + 'banner/ppp0.png' + imgSuffix,
+      p1Src: imgUrl + 'banner/pp1.png' + imgSuffix,
+      p2Src: imgUrl + 'banner/pp2.png' + imgSuffix,
+      p3Src: imgUrl + 'banner/pp3.png' + imgSuffix,
+      p4Src: imgUrl + 'banner/pp4.png' + imgSuffix,
+      p6Src: imgUrl + 'banner/pp6.png' + imgSuffix,
+      p7Src: imgUrl + 'banner/bottom.png' + imgSuffix,
       p0Top: -100,
       p1Top: 0,
       p2Top: 0,

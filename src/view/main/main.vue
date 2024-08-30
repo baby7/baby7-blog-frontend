@@ -74,6 +74,8 @@
     import BackToTop            from "@/components/back-to-top/back-to-top";
     import BackgroundSnow       from "@/components/background-snow/background-snow";
 
+    const imgSuffix = "-to75.webp";
+
     export default {
         name: "Main",
         components: {
@@ -190,6 +192,8 @@
                 // }
                 getSetting().then(res => {
                     if(this.settingData.updateTime != res.data.updateTime) {
+                        res.data.avatar = res.data.avatar + imgSuffix
+                        res.data.icon = res.data.icon + imgSuffix
                         this.settingData = res.data
                         localStorage.setItem("baby7-setting", JSON.stringify(res.data))
                         document.querySelector("link[rel='icon']").href = this.settingData.icon
