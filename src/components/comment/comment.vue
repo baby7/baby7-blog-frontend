@@ -27,7 +27,7 @@
         </div>
         <div v-if="commentList.length > 0" class="comment-list">
             <div class="comment-card" v-for="comment in commentList">
-                <img class="comment-img" :src="comment.avatar">
+                <img class="comment-img" :src="comment.avatar" alt="头像">
                 <div class="comment-right">
                     <div class="comment-head">
                         <a class="comment-nick" :href="comment.url">
@@ -46,7 +46,7 @@
                     </div>
                     <div class="comment-quote">
                         <div class="comment-card" v-for="children in comment.childrenList">
-                            <img class="comment-img" :src="children.avatar">
+                            <img class="comment-img" :src="children.avatar" alt="头像">
                             <div class="comment-right">
                                 <div class="comment-head">
                                     <a class="comment-nick" :href="children.url">

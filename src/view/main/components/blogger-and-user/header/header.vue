@@ -1,7 +1,7 @@
 <template>
     <header>
         <div class="header-info">
-            <img :src="avatar" class="header-img" style="height: 35px">
+            <img :src="avatar" class="header-img" style="height: 35px" :alt="title">
             <span class="header-title">
 <!--                <router-link to="/index.html">-->
 <!--                    {{ title }}-->

@@ -5,8 +5,7 @@
                 <section class="el-container">
                     <!-- 图片信息展示 -->
                     <aside class="el-aside phone-adapt" style="width:220px;">
-                        <img class="blog_item_img" :src="blog.img == null ? defaultBlogImg : blog.img + imgSuffix"
-                             :alt="blog.title">
+                        <img class="blog_item_img" :src="blog.img == null ? defaultBlogImg : blog.img + imgSuffix" :alt="blog.title">
                     </aside>
                     <!-- 文字内容展示 -->
                     <main class="el-main el-menu-item-blog">

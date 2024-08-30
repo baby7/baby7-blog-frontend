@@ -6,11 +6,11 @@
     <img v-if="!spider" :src="p3Src" id="p3" :style="{ transform: `translateY(${p3Top}px)`, zIndex: `400` }" alt="p3">
     <img v-if="!spider" :src="p4Src" id="p4" :style="{ transform: `translateY(${p4Top}px)`, zIndex: `500` }" alt="p4">
     <img v-if="!spider" :src="p6Src" id="p6" :style="{ transform: `translateY(${p6Top}px)`, zIndex: `600` }" alt="p6">
-    <a v-if="!spider" href="javascript:void(0);"
+    <button v-if="!spider"
        @click="goContent"
        :style="{ transform: `translateY(${p6Top}px)`, zIndex: `700`}">
       <img :src="p7Src" id="p7" alt="p7">
-    </a>
+    </button>
     <div id="banner_title"
          class="container"
          :style="{ marginRight: `0px`, marginTop: `${bannerTitleMarginTop}px`, width: `75%`}">
@@ -138,12 +138,14 @@ section {
     will-change: transform; // 提前告知浏览器哪些属性可能会发生变化
   }
 
-  a {
+  button {
     position: absolute;
     margin-left: 0;
     margin-top: 50rem;
     width: 4%;
     height: 8%;
+    background: transparent;
+    border: 0;
     -webkit-animation: bounce 2s 1s infinite;
   }
 

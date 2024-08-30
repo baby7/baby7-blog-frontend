@@ -10,7 +10,7 @@
                 class="close icon-close iconfont"
                 @click="previewImgModal = false"
             ></span>
-            <img :src="previewImgSrc" :class="[previewImgMode]" alt=""/>
+            <img :src="previewImgSrc" :class="[previewImgMode]" alt="预览"/>
         </div>
     </div>
 </template>
