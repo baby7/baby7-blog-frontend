@@ -62,6 +62,10 @@ export default {
                     path: '/comment.html',
                 },
                 {
+                    name: "友链",
+                    path: '/friendLink.html',
+                },
+                {
                     name: "博主",
                     path: '/myself.html',
                 },

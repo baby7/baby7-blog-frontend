@@ -50,6 +50,12 @@ export default [
                 component: () => import('@/view/comment/comment')
             },
             {
+                /*友链*/
+                path: '/friendLink.html',
+                name: 'friendLink',
+                component: () => import('@/view/friend-link/friend-link.vue')
+            },
+            {
                 /*博主*/
                 path: '/myself.html',
                 name: 'myself',

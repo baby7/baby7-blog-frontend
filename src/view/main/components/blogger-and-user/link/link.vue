@@ -5,7 +5,7 @@
           &nbsp;◈&nbsp;友链
         </span>
         <span class="add-user">
-          <router-link class="blog-link" :to="'/comment.html'">
+          <router-link class="blog-link" :to="'/friendLink.html'">
             +友链
           </router-link>
         </span>
