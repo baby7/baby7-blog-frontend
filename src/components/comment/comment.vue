@@ -153,6 +153,15 @@ export default {
                         browser: "",
                         system: ""
                     }
+                    if (localStorage.getItem("comment-nickname")) {
+                        this.commentSubmit.nickname = localStorage.getItem("comment-nickname");
+                    }
+                    if (localStorage.getItem("comment-email")) {
+                        this.commentSubmit.email = localStorage.getItem("comment-email");
+                    }
+                    if (localStorage.getItem("comment-url")) {
+                        this.commentSubmit.url = localStorage.getItem("comment-url");
+                    }
                     this.commentPrompt = "快来留言吧，支持markdown哦~"
                     this.getData()
                 }
