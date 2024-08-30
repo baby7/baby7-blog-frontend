@@ -214,7 +214,7 @@
                         this.$store.state.blogDescription = this.settingData.describe
                         this.$store.state.blogTitleShow = true;
                     }
-                    this.autoPush()
+                    // this.autoPush()
                 })
             },
             ShowMessage(){
@@ -227,40 +227,40 @@
             },
             //自动收录
             autoPush() {
-                // 爬虫爬取的页面不进行推送收录
-                if(this.spider) {
-                    return;
-                }
-                // 本地调试不进行推送收录
-                if(this.$route.path.indexOf("localhost") !== -1) {
-                    return;
-                }
-                // 老地址(不包含.html的且不包含/index的)不进行推送收录
-                if(this.$route.path.indexOf(".html") === -1 && this.$route.path.indexOf("/index") === -1) {
-                    return;
-                }
-                // 百度自动收录
-                if(this.settingData.push.baidu.state){
-                    let bp = document.createElement('script');
-                    let curProtocol = window.location.protocol.split(':')[0];
-                    if (curProtocol === 'https') {
-                        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
-                    }
-                    else {
-                        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
-                    }
-                    let s = document.getElementsByTagName("script")[0];
-                    s.parentNode.insertBefore(bp, s);
-                }
-                // 360自动收录
-                if(this.settingData.push["360"].state){
-                    let th = document.createElement('script');
-                    th.src = "https://jspassport.ssl.qhimg.com/11.0.1.js?" + this.settingData.push["360"].value;
-                    th.id = "sozz"
-                    let s = document.getElementsByTagName("script")[0];
-                    s.parentNode.insertBefore(th, s);
-                }
-                // 头条自动收录(头条推送失效)
+                // // 爬虫爬取的页面不进行推送收录
+                // if(this.spider) {
+                //     return;
+                // }
+                // // 本地调试不进行推送收录
+                // if(this.$route.path.indexOf("localhost") !== -1) {
+                //     return;
+                // }
+                // // 老地址(不包含.html的且不包含/index的)不进行推送收录
+                // if(this.$route.path.indexOf(".html") === -1 && this.$route.path.indexOf("/index") === -1) {
+                //     return;
+                // }
+                // // 百度自动收录
+                // if(this.settingData.push.baidu.state){
+                //     let bp = document.createElement('script');
+                //     let curProtocol = window.location.protocol.split(':')[0];
+                //     if (curProtocol === 'https') {
+                //         bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+                //     }
+                //     else {
+                //         bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+                //     }
+                //     let s = document.getElementsByTagName("script")[0];
+                //     s.parentNode.insertBefore(bp, s);
+                // }
+                // // 360自动收录
+                // if(this.settingData.push["360"].state){
+                //     let th = document.createElement('script');
+                //     th.src = "https://jspassport.ssl.qhimg.com/11.0.1.js?" + this.settingData.push["360"].value;
+                //     th.id = "sozz"
+                //     let s = document.getElementsByTagName("script")[0];
+                //     s.parentNode.insertBefore(th, s);
+                // }
+                // // 头条自动收录(头条推送失效)
                 // if(this.settingData.push.toutiao.state){
                 //   let el = document.createElement("script");
                 //   el.src = "https://s3a.pstatp.com/toutiao/push.js?" + this.settingData.push.toutiao.value;
