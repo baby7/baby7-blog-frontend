@@ -1,7 +1,7 @@
 {
 	"version": "Live2D MoePet v1.1",
 	"name": "remu",
-	"model": "remu.moc",
+	"model": "remu.moc.txt",
 	"textures": [
 		"remu2048/texture_00.png-to75.webp"
 	],
