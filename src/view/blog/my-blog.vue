@@ -44,7 +44,6 @@ export default {
             this.ChangeMarkdownTheme()
             getBlog(this.blogId).then(res => {
                 this.blogContent = res.data;
-                this.blogContent.content = this.getContent(this.blogContent.content)
                 this.$store.state.blogTitle = this.blogContent.title
                 this.$store.state.blogDescription = this.blogContent.introduce
                 this.$store.state.blogTitleShow = true
@@ -88,22 +87,6 @@ export default {
             else {
                 this.markdownTheme = "black-dark"
             }
-        },
-        getContent(content) {
-            let changeContent = ""
-            let labelCodeBool = false
-            content.trim().split('\n').forEach(function(v, i) {
-                if(v.indexOf("```") != -1) {
-                    labelCodeBool = !labelCodeBool
-                }
-                if(labelCodeBool){
-                    changeContent = changeContent + "\n" + v
-                }
-                else {
-                    changeContent = changeContent + "\n\n" + v
-                }
-            })
-            return changeContent
         },
         getBlogId() {
             let blogId = this.$route.params.blogId;
