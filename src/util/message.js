@@ -11,6 +11,12 @@ export function getSystem(callback, message, browserInfo) {
             message['browser'] = browserInfo.browser;               // 浏览器
             message['browserVersion'] = browserInfo.version;        // 浏览器版本
             message['userAgent'] = navigator.userAgent;             // User-Agent
+            let userAgent = navigator.userAgent;
+            // 判断ZhihuHybrid是否在userAgent中
+            if (userAgent.includes("ZhihuHybrid")) {
+                message['browser'] = "Zhihu";
+                message['browserVersion'] = "1.0";
+            }
             if (navigator.userAgentData.platform === "Windows") {
                 const majorPlatformVersion = parseInt(ua.platformVersion.split('.')[0]);
                 if (majorPlatformVersion >= 13) {
