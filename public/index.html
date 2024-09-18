@@ -17,12 +17,16 @@
         ::-webkit-scrollbar-track { border-radius: 20px; background: #202124; }
         ::-webkit-scrollbar-thumb { border-radius: 20px; background-color: #3F86E8; }
     </style>
-    <!-- 国家公祭日网站褪色一天 -->
+    <!-- 国家公祭日网站&9.18各褪色一天 -->
     <script>
         var curDate = new Date();
-        var beginDate = new Date(curDate.getFullYear() + '/12/13');
-        var endDate = new Date(curDate.getFullYear() + '/12/14');
-        if (curDate >= beginDate && curDate <= endDate) {
+        var beginOfferingDate = new Date(curDate.getFullYear() + '/12/13');
+        var endOfferingDate = new Date(curDate.getFullYear() + '/12/14');
+        var begin918Date = new Date(curDate.getFullYear() + '/9/18');
+        var end918Date = new Date(curDate.getFullYear() + '/9/19');
+        if (
+            (curDate >= beginOfferingDate && curDate <= endOfferingDate)
+            || (curDate >= begin918Date && curDate <= end918Date)) {
             document.write("<style>html {filter: progid:DXImageTransform.Microsoft.BasicImage(grayscale=1);-webkit-filter: grayscale(100%);}</style>");
         }
     </script>
