@@ -59,9 +59,9 @@ export default {
     transition: all .5s;
 }
 .friend-link-img {
-    width: 100px;
+    width: 80px;
     right: 100px;
-    margin-left: 20px;
+    margin-left: 30px;
 }
 .friend-link-qr {
     width: 150px;

@@ -35,10 +35,6 @@
         },
         data() {
             return {
-                query: {
-                    current: 1,
-                    size: 20
-                },
                 linkList: [],
                 labelList: []
             }
@@ -46,10 +42,10 @@
         methods:{
             // 获取数据
             getData() {
-                getLabelPage(this.query).then(res => {
+                getLabelPage({current: 1, size: 17}).then(res => {
                     this.labelList = res.data.records
                 })
-                getLinkList(this.query).then(res => {
+                getLinkList({current: 1, size: 20}).then(res => {
                     this.linkList = res.data.records
                 })
             }
