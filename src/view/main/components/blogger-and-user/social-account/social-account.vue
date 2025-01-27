@@ -5,7 +5,7 @@
         <!-- 分隔 -->
         <hr class="title-line-right">
         <!-- 链接表 -->
-        <div>
+        <div style="display:flex;justify-content:center;">
             <template v-for="socialAccount in socialAccounts">
                 <div class="friend-link-item">
                     <img class="friend-link-img" :src="socialAccount.icon + imgSuffix" :alt="socialAccount.type+'图标'">
@@ -57,11 +57,12 @@ export default {
     font-size: 13px;
     box-shadow: var(--box-shadow);
     transition: all .5s;
+    margin-left: 15px;
+    margin-right: 15px;
 }
 .friend-link-img {
     width: 80px;
     right: 100px;
-    margin-left: 30px;
 }
 .friend-link-qr {
     width: 150px;

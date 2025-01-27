@@ -42,7 +42,7 @@
         methods:{
             // 获取数据
             getData() {
-                getLabelPage({current: 1, size: 17}).then(res => {
+                getLabelPage({current: 1, size: 16}).then(res => {
                     this.labelList = res.data.records
                 })
                 getLinkList({current: 1, size: 20}).then(res => {

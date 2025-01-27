@@ -308,7 +308,7 @@
         display: flex;
         align-items: flex-start;
         margin: 20px auto 0;
-        max-width: 1126px;
+        max-width: 1150px;
         transition: all 0.25s ease-in-out 0.24s;
         transform: translateY(0px);
         opacity: 1;
@@ -321,8 +321,8 @@
         position: sticky;
         top: 70px;
         transition: all .3s;
-        margin-left: 15px;
-        flex: 0 0 300px;
+        margin-left: 0px;
+        flex: 0 0 320px;
         height: auto;
         border-radius: .25rem;
         box-sizing: border-box;
