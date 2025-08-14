@@ -5,6 +5,11 @@
 <!--                <li class="nav-style-li">-->
 <!--                    <StyleChange/>-->
 <!--                </li>-->
+                <li class="nav-a-li">
+                    <a href='https://www.agiletiles.com' class="nav-a-text" target="_blank">
+                        灵卡面板
+                    </a>
+                </li>
                 <li class="nav-search-li">
                     <BlogSearch :items="blogList"/>
                 </li>
