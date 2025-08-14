@@ -28,6 +28,9 @@
                 <a href='/feed' target="_blank">
                     RSS订阅
                 </a>
+                <a href='https://www.agiletiles.com' target="_blank">
+                    灵卡面板
+                </a>
             </span>
         </div>
     </footer>
