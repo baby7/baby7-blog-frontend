@@ -1,5 +1,5 @@
 # FROM 指定基础镜像
-FROM nginx:1.8.1
+FROM nginx:1.18.0
 # ARG 构建参数
 ARG DIST_FILE=dist
 # COPY 复制文件
