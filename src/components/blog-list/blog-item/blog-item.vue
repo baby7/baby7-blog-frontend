@@ -5,7 +5,7 @@
                 <section class="el-container">
                     <!-- 图片信息展示 -->
                     <aside class="el-aside phone-adapt" style="width:220px;">
-                        <img class="blog_item_img" :src="blog.img == null ? defaultBlogImg : blog.img + imgSuffix" :alt="blog.title">
+                        <img class="blog_item_img" :src="getBlogImg(blog)" :alt="blog.title">
                     </aside>
                     <!-- 文字内容展示 -->
                     <main class="el-main el-menu-item-blog">
@@ -48,6 +48,20 @@ export default {
         return {
             imgSuffix: imgSuffix,
             defaultBlogImg: this.$store.state.defaultBlogImg + imgSuffix
+        }
+    },
+    methods: {
+        getBlogImg(blogData) {
+            if (blogData.img == null) {
+                return this.defaultBlogImg;
+            }
+            // 判断图片是否由特定域名开始
+            if (blogData.img.startsWith("https://media.baby7blog.com")) {
+                return blogData.img + imgSuffix;
+            }
+            else {
+                return blogData.img;
+            }
         }
     }
 }
