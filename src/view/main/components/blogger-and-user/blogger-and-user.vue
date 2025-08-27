@@ -2,6 +2,8 @@
     <div id="app" class="blogger-and-user">
         <!-- 博主模块 -->
         <Blogger :bloggerData="settingData"/>
+        <!-- 灵卡面板 -->
+        <AgileTiles/>
         <!-- 社交模块 -->
         <SocialAccount v-if="settingData.socialAccounts" :social-accounts="settingData.socialAccounts"/>
         <!-- 标签模块 -->
@@ -13,6 +15,7 @@
 
 <script>
     import Blogger from "@/view/main/components/blogger-and-user/blogger/blogger";
+    import AgileTiles from "@/view/main/components/blogger-and-user/agiletiles/agiletiles";
     import SocialAccount from "@/view/main/components/blogger-and-user/social-account/social-account";
     import Label from "@/view/main/components/blogger-and-user/label/label";
     import Link from "@/view/main/components/blogger-and-user/link/link";
@@ -22,6 +25,7 @@
     export default {
         name: "BloggerAndUser",
         components: {
+            AgileTiles,
             Blogger,
             SocialAccount,
             Link,
@@ -42,7 +46,7 @@
         methods:{
             // 获取数据
             getData() {
-                getLabelPage({current: 1, size: 16}).then(res => {
+                getLabelPage({current: 1, size: 7}).then(res => {
                     this.labelList = res.data.records
                 })
                 getLinkList({current: 1, size: 20}).then(res => {
