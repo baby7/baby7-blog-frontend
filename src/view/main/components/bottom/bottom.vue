@@ -25,6 +25,9 @@
         </div>
         <div>
             <span class="footer-item">
+                <a href='https://github.com/baby7' target="_blank">
+                    Github
+                </a>
                 <a href='/feed' target="_blank">
                     RSS订阅
                 </a>

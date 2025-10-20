@@ -38,8 +38,8 @@
                     </ul>
                 </li>
                 <li class="nav-a-li">
-                    <a href='/feed' class="nav-a-text" target="_blank">
-                        RSS订阅
+                    <a href='https://github.com/baby7' class="nav-a-text" target="_blank">
+                        Github
                     </a>
                 </li>
             </ul>
