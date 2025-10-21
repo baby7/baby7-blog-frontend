@@ -5,7 +5,7 @@
                 <img :src="bloggerData.avatar" style="object-fit: cover;" alt="avatar">
             </span>
             <div class="blogger-text">
-                <a href="https://github.com/baby7" class="blogger-text-title">{{ bloggerData.nickname }}</a><br>
+                <a href="https://github.com/baby7" target="_blank" class="blogger-text-title">{{ bloggerData.nickname }}</a><br>
                 <span>{{ bloggerData.describe }}</span>
             </div>
         </div>
